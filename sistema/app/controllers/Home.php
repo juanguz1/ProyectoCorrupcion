@@ -6,10 +6,5 @@ class Home extends Controller
   {
     $this->view('index');
   }
-
-  public function IndexTrabajador($param = '')
-  {
-    $this->view('indexA');
-  }
   
 }

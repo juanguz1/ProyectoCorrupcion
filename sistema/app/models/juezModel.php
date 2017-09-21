@@ -44,12 +44,13 @@ class juezModel
 	
 	function delete_juez($idJuez){
         $query = "DELETE FROM juez WHERE idJuez='{$idJuez}'";
+		echo $query;
 		if($this->connection->query($query) === TRUE){
 			$res="Borrado";
 		}else{
 			 $res=$this->connection->error;
 		  }
-		  echo $res;
-      return $res;    
+      return $res; 
     }
+  
 } 

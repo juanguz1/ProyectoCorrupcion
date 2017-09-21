@@ -39,11 +39,11 @@
 <div id="wrapper">
 
     <!-- Navigation -->
-    
+
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
                 <a class="navbar-brand" href="inicio">Sistema Gestor de Casos de Corrupción</a>
-                
+
         </div>
 
        <!-- Top Navigation: Right Menu -->
@@ -63,14 +63,14 @@
                         <div class="input-group custom-search-form">
                             <small class="text-muted">
                                 Menú de navegación
-                            </small>    
+                            </small>
                         </div>
                     </li>
 					<li>
                         <a href="#"><i class="fa fa-bank fa-fw"></i> Casos de corrupción<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Añadir caso</a>
+                                <a href="Antes_Caso">Añadir caso</a>
                             </li>
 							<li>
                                 <a href="#">Editar caso</a>
@@ -90,7 +90,13 @@
                                 <a href="ciudadano">Añadir ciudadano</a>
                             </li>
 							<li>
-                                <a href="Ver_Ciudadanos">Gestionar ciudadanos</a>
+                                <a href="#">Editar ciudadano</a>
+                            </li>
+							<li>
+                                <a href="Ver_Ciudadanos">Ver ciudadanos</a>
+                            </li>
+							<li>
+                                <a href="#">Eliminar ciudadano</a>
                             </li>
                         </ul>
                     </li>
@@ -101,11 +107,17 @@
                                 <a href="#">Añadir juez</a>
                             </li>
 							<li>
-                                <a href="Ver_Jueces">Gestionar jueces</a>
+                                <a href="#">Editar juez</a>
+                            </li>
+							<li>
+                                <a href="Ver_Jueces">Ver juez</a>
+                            </li>
+							<li>
+                                <a href="#">Eliminar juez</a>
                             </li>
                         </ul>
                     </li>
-					
+
 					<li>
                         <a href="#"><i class="fa fa-newspaper-o fa-fw"></i> Periódico<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -113,11 +125,17 @@
                                 <a href="periodico">Añadir periódico</a>
                             </li>
 							<li>
-                                <a href="Ver_Periodicos">Gestionar periódicos</a>
+                                <a href="#">Editar periódico</a>
+                            </li>
+							<li>
+                                <a href="Ver_Periodicos">Ver periódicos</a>
+                            </li>
+							<li>
+                                <a href="#">Eliminar periódico</a>
                             </li>
                         </ul>
                     </li>
-					
+
 					<li>
                         <a href="#"><i class="fa fa-bookmark fa-fw"></i> Partido<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -125,7 +143,13 @@
                                 <a href="#">Añadir partido</a>
                             </li>
 							<li>
-                                <a href="Ver_Partidos">Gestionar partidos</a>
+                                <a href="#">Editar partido</a>
+                            </li>
+							<li>
+                                <a href="Ver_Partidos">Ver partidos</a>
+                            </li>
+							<li>
+                                <a href="#">Eliminar partido</a>
                             </li>
                         </ul>
                     </li>

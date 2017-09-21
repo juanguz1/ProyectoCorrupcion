@@ -1,5 +1,7 @@
 <?php 
+    //include($_SERVER['DOCUMENT_ROOT']."/Proyecto_IS/ProyectoSemestreIS/sistema/app/views/dashboard_jefagestion.php");
 	include($_SERVER['DOCUMENT_ROOT']."/ProyectoCorrupcion/sistema/app/views/base_dashboard.php");
+	
 ?>
 <?php startblock('title') ?>
     Gestionar jueces
@@ -121,6 +123,13 @@
 					</div>
 				</div>
 			</div>
+	
+
+
+
+
+
+
 		</div>
 	</section>
 </div>
@@ -167,28 +176,43 @@
 			}
 			});
 		});
+		$('#registro').submit(function(e){
+			var url = "/Proyecto_IS/ProyectoSemestreIS/sistema/public/Jefa_Gestion/registrar_cuentas";
+			$.ajax({
+			type: "POST",
+			url: url,
+			data: $("#registro").serialize(), // serializes the form's elements.
+			success: function(data)
+			{
+				alertify.success("Se ha registrado la cuenta exitosamente");
+				sleep(1700).then(() => {
+					location.reload();
+				});
+				
+			}
+			});
+			e.preventDefault();
+		});
 		$('.Delete').on('click',function(){
-			console.log(String($(this).data('idjuez')));
-			var url = "/ProyectoCorrupcion/sistema/public/Index/borraJuez/"+$(this).data('idjuez');
-			var mensaje = confirm("¿Estas seguro que deseas elimnar el juez?");
-			//Detectamos si el usuario acepto el mensaje
-			if (mensaje) {
-				//alert("¡Gracias por aceptar!");
-				$.ajax({
-				type:"GET",
-				url: url, 
-				success: function(data){
-					if (data=='Borrado'){
-						alertify.success("Se ha eliminado el juez exitosamente");
-					}else {
-						alertify.error('No se realizó ningún cambio, intente más tarde.');
-					}
-					sleep(1700).then(()=>{
-						location.reload();
-					});
+			//console.log(String($(this).data('idjuez')));
+			alert($(this).data('idjuez'));
+			var url = "/ProyectoCorrupcion/sistema/public/Index/borraJuez"+$(this).data('idjuez');
+			$.ajax({
+			type:"GET",
+			url: url, 
+			success: function(data){
+				alert(data);
+				if (data=='Borrado'){
+					alertify.success("Se ha eliminado el juez exitosamente");
+				}else {
+					alertify.error('No se realizó ningún cambio, intente más tarde.');
+					
 				}
+				sleep(1700).then(()=>{
+					location.reload();
 				});
 			}
+			});
 		});
 	function sleep (time) {
 		return new Promise((resolve) => setTimeout(resolve, time));

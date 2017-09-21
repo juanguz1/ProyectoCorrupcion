@@ -23,5 +23,17 @@ class periodicoModel
     $periodicos = $this->connection->query($query);
     return $periodicos ? $periodicos:array();
   }
-  
-} 
+
+  function select_names_periodicos(){
+    $query = 'SELECT NombrePeriodico FROM PERIODICO';
+    $tildes = $this->connection->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+    $periodicos = $this->connection->query($query);
+    return $periodicos ? $periodicos:array();
+  }
+
+  function registra_periodico($NombrePeriodico,$CallePeriodico,$NumeroPeriodico,$ColoniaPeriodico,$MunicipioPeriodico,$EstadoPeriodico,$PaisPeriodico,$Tiraje){
+  $query="INSERT INTO Periodico  VALUES ('$NombrePeriodico','$CallePeriodico','$NumeroPeriodico','$ColoniaPeriodico','$MunicipioPeriodico','$EstadoPeriodico','$PaisPeriodico','$Tiraje')";
+  $this->connection->query($query);
+}
+
+}

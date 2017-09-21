@@ -4,71 +4,81 @@
      Añadir nuevo ciudadano
   <?php endblock() ?>
 
+  <?php
+    echo' '
+  ?>
+
  <?php startblock('main') ?>
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			Introducir los siguientes datos
         </div>
-        
+
 		<div class="panel-body">
 			<div class="row">
                 <div class="col-lg-6">
-                    <form role="form">
+                    <form role="form" action="Agregar_Ciudadano" method="post">
                         <div class="form-group">
+                          <label>Clave ciudadano</label>
+                          <input name="idCiudadano" id="idCiudadano" class="form-control">
+            <p class="help-block">* Campo Obligatorio.</p>
+
+
                             <label>Nombre</label>
-                            <input name="nombreCiud" class="form-control">
+                            <input name="Nombre" id="Nombre" class="form-control">
 							<p class="help-block">* Campo Obligatorio.</p>
-                                                
+
                             <label>Apellido Paterno</label>
-                            <input name="apellidoPaterno" class="form-control">
+                            <input name="ApellidoPaterno" id="ApellidoPaterno"class="form-control">
                             <p class="help-block">* Campo Obligatorio.</p>
-                                                
+
                             <label>Apellido Materno</label>
-                            <input name="apellidoMaterno" class="form-control">
+                            <input name="ApellidoMaterno" id="ApellidoMaterno" class="form-control">
                             <p class="help-block">* Campo Obligatorio.</p>
-                                                
+
                             <label>Fecha nacimiento</label>
-                            <input type="date" name="FechaNacimiento" class="form-control">
+                            <input type="date" name="FechaNacimiento" id="FechaNacimiento" class="form-control">
                             <p class="help-block">* Campo Obligatorio.</p>
 							<label>Patrimonio</label>
 							<div class="form-group input-group">
 								<span class="input-group-addon">$</span>
-									<input name="patrimonio" type="text" class="form-control">
+									<input name="Patrimonio" id="Patrimonio" type="text" class="form-control">
 								<span class="input-group-addon">.00</span>
 							</div>
 							<p class="help-block">* Campo Obligatorio.</p>
-                        </div>
-                                            
-                    </form>
-                </div>
-                
-                <div class="col-lg-6">
-                    
-                    <form role="form">
+
+
+                        <h1>Direccion</h1>
+
                         <label>Calle</label>
-                        <input name="calle" class="form-control">
+                        <input name="Calle" id="Calle" class="form-control">
                         <p class="help-block">* Campo Obligatorio.</p>
-                                   
+
                         <label>Número</label>
-                        <input name="numero" class="form-control">
+                        <input name="Numero" id="Numero" class="form-control">
                         <p class="help-block">* Campo Obligatorio.</p>
-                                     
+
                         <label>Colonia</label>
-                        <input name="colonia" class="form-control">
+                        <input name="Colonia" id="Colonia" class="form-control">
                         <p class="help-block">* Campo Obligatorio.</p>
-                                           
+
+                        <label>Municipio</label>
+                        <input name="Municipio" id="Municipio" class="form-control">
+                        <p class="help-block">* Campo Obligatorio.</p>
+
                         <label>Estado</label>
-                        <input name="estado" class="form-control">
+                        <input name="Estado" id="Estado" class="form-control">
                         <p class="help-block">* Campo Obligatorio.</p>
-                                            
+
                         <label>Pais</label>
-                        <input name="estado" class="form-control">
+                        <input name="Pais" id="Pais" class="form-control">
                         <p class="help-block">* Campo Obligatorio.</p>
+                        <input type="submit" value="Guardar" class="form-control" name="GuardaCiudadano" />
                     </form>
                 </div>
             </div>
         </div>
-    </div>	
+    </div>
 <?php endblock() ?>
 
 <?php startblock('scripts') ?>

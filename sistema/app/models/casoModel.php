@@ -1,6 +1,6 @@
 <?php
 
-class partidoModel
+class casoModel
 {
   private $username;
   private $password;
@@ -17,18 +17,17 @@ class partidoModel
     $this->connection->query("SET NAMES 'utf8'");
 }
 
-  function select_all_partidos(){
-    $query = 'select * from partido';
+  function select_all_casos(){
+    $query = 'SELECT * FROM caso;';
 	$tildes = $this->connection->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
-    $partidos = $this->connection->query($query);
-    return $partidos ? $partidos:array();
+    $casos = $this->connection->query($query);
+    return $casos ? $casos:array();
   }
 
-  function registra_partido($NombrePartido,$CallePartido,$NumeroPartido,$ColoniaPartido,$MunicipioPartido,$EstadoPartido,$PaisPartido){
-  $query="INSERT INTO Partido VALUES ('$NombrePartido','$CallePartido','$NumeroPartido','$ColoniaPartido','$MunicipioPartido','$EstadoPartido','$PaisPartido')";
+  function registra_caso($idCaso,$NombreCaso,$Descripcion,$Desvio,$PaisOrigen,$idPeriodico,$FechaDescubrimiento,$Dictamen){
+  $query="INSERT INTO caso VALUES ('$idCaso','$NombreCaso','$Descripcion','$Desvio','$PaisOrigen','$idPeriodico','$FechaDescubrimiento','$Dictamen')";
   $this->connection->query($query);
-}
-
+  }
 
 
 }
