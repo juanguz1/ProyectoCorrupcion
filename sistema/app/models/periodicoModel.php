@@ -35,5 +35,32 @@ class periodicoModel
   $query="INSERT INTO Periodico  VALUES ('$NombrePeriodico','$CallePeriodico','$NumeroPeriodico','$ColoniaPeriodico','$MunicipioPeriodico','$EstadoPeriodico','$PaisPeriodico','$Tiraje')";
   $this->connection->query($query);
 }
+  
+  function consulta_actualizar($NombrePeriodico){
+        $query = "select * from periodico where NombrePeriodico='{$NombrePeriodico}'";
+        $consulta_actualizar = $this->connection->query($query);
+        return $consulta_actualizar ? $consulta_actualizar : array();      
+  }
+  
+  function update_periodico($NombrePeriodico,$Tiraje, $CallePeriodico, $NumeroPeriodico, $ColoniaPeriodico, $MunicipioPeriodico, $EstadoPeriodico, $PaisPeriodico){
+    $query = "UPDATE periodico set Tiraje='{$Tiraje}', CallePeriodico='{$CallePeriodico}', NumeroPeriodico='{$NumeroPeriodico}', ColoniaPeriodico='{$ColoniaPeriodico}', MunicipioPeriodico='{$MunicipioPeriodico}', EstadoPeriodico='{$EstadoPeriodico}' WHERE NombrePeriodico = '{$NombrePeriodico}'";
+    if($this->connection->query($query) === TRUE){
+      $res="Actualizado";
+    }else{
+       $res=$this->connection->error;
+      }
+      return $res; 
+  }
+  
+  function delete_periodico($NombrePeriodico){
+        $query = "DELETE FROM periodico WHERE NombrePeriodico='{$NombrePeriodico}'";
+    if($this->connection->query($query) === TRUE){
+      $res="Borrado";
+    }else{
+       $res=$this->connection->error;
+      }
+      echo $res;
+      return $res;    
+    }
 
 }

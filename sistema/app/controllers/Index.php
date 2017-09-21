@@ -2,11 +2,14 @@
 class Index extends Controller
 {
   private $response;
-  private $usuarioModel;
-  private $modelo_jefa;
+  private $modelo_juez;
+  private $modelo_ciudadano;
+  private $modelo_periodico;
+
   function __construct(){
-    //$this->usuarioModel = $this->model('usuarioModel');
-	$this->modelo_juez = $this->model('juezModel');
+    $this->modelo_juez = $this->model('juezModel');
+    $this->modelo_ciudadano = $this->model('ciudadanoModel');
+    $this->modelo_periodico = $this->model('periodicoModel');
   }
 
   function caso(){
@@ -53,10 +56,9 @@ class Index extends Controller
 
   //////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////*CIUDADANOS*////////////////////////////////////////////
-  public function Ver_Ciudadanos(){
-    $EE_modelo = $this->model('ciudadanoModel');
-	$ciudadanos = $EE_modelo->select_all_ciudadanos();
-	$this->view('ciudadano/mostrar_ciudadanos', ['ciudadanos'=>$ciudadanos]);
+   public function Ver_Ciudadanos(){
+    $ciudadanos = $this->modelo_ciudadano->select_datos_ciudadanos();
+    $this->view('ciudadano/gestionar_ciudadano', ['ciudadanos'=>$ciudadanos]);
   }
 
 
@@ -68,43 +70,62 @@ class Index extends Controller
      $this->view('ciudadano/insertar_ciudadano');
   }
 
+  public function Direccion_Ciudadanos($idCiudadano){
+    $consulta_actualiza = $this->modelo_ciudadano->select_direccion_ciudadanos($idCiudadano);
+    $direccion = $consulta_actualiza->fetch_object();
+      die(json_encode(array('idCiudadano'=>$direccion->idCiudadano,'Calle'=>$direccion->Calle,'Numero'=>$direccion->Numero,'Colonia'=>$direccion->Colonia,'Municipio'=>$direccion->Municipio,'Estado'=>$direccion->Estado,'Pais'=>$direccion->Pais)));
+  }
+  
+  public function actualizar_Ciudadano($idCiudadano){
+        $consulta_actualiza = $this->modelo_ciudadano->consulta_actualizar($idCiudadano);
+        $ciudadano = $consulta_actualiza->fetch_object();
+        die(json_encode(array('idCiudadano'=>$ciudadano->idCiudadano,'Nombre'=>$ciudadano->Nombre,'ApellidoPaterno'=>$ciudadano->ApellidoPaterno,'ApellidoMaterno'=>$ciudadano->ApellidoMaterno,'FechaNacimiento'=>$ciudadano->FechaNacimiento,'Patrimonio'=>$ciudadano->Patrimonio,'Calle'=>$ciudadano->Calle,'Numero'=>$ciudadano->Numero,'Colonia'=>$ciudadano->Colonia,'Municipio'=>$ciudadano->Municipio,'Estado'=>$ciudadano->Estado,'Pais'=>$ciudadano->Pais)));
+  }
+  
+  public function actualizaCiudadano(){
+    $resul = $this->modelo_ciudadano->update_ciudadano($_POST["idCiudadano1"],$_POST["Nombre1"],$_POST["ApellidoPaterno1"],$_POST["ApellidoMaterno1"],$_POST["FechaNacimiento1"], $_POST["Patrimonio1"],$_POST["Calle1"],$_POST["Numero1"],$_POST["Colonia1"],$_POST["Municipio1"], $_POST["Estado1"],$_POST["Pais1"]);
+    echo $resul;  
+    return $resul;
+  }
+  
+  public function borraCiudadano($idCiudadano){
+    $resul = $this->modelo_ciudadano->delete_ciudadano($idCiudadano);
+    return $resul;
+  }
+
   ///////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////*JUEZ*/////////////////////////////////////////////
   public function Ver_Jueces(){
     $EE_modelo = $this->model('JuezModel');
-	$jueces = $EE_modelo->select_all_jueces();
-	$this->view('juez/gestionar_juez', ['jueces'=>$jueces]);
+  $jueces = $EE_modelo->select_all_jueces();
+  $this->view('juez/gestionar_juez', ['jueces'=>$jueces]);
   }
-
+  
   //Recibe informacion y la manda al modal
     public function actualizar_Juez($idJuez){
         $consulta_actualiza = $this->modelo_juez->consulta_actualizar($idJuez);
         $juez = $consulta_actualiza->fetch_object();
         die(json_encode(array('idJuez'=>$juez->idJuez,'Nombre'=>$juez->Nombre,'ApellidoPaterno'=>$juez->ApellidoPaterno,'ApellidoMaterno'=>$juez->ApellidoMaterno,'FechaComienzo'=>$juez->FechaComienzo)));
     }
-
+  
     //Actualiza informacion de  Juez
-	public function actualizaJuez(){
-		$resul = $this->modelo_juez->update_juez($_POST["idJuez"],$_POST["Nombre"],$_POST["ApellidoPaterno"],$_POST["ApellidoMaterno"],$_POST["FechaComienzo"]);
-		echo $resul;
-		return $resul;
-	}
-
-	public function borraJuez($idJuez){
-		$resul = $this->modelo_juez->delete_juez($idJuez);
-        //$juez = $consulta_borra->fetch_object();
-        //die(json_encode(array('idJuez'=>$juez->idJuez,'Nombre'=>$juez->Nombre,'ApellidoPaterno'=>$juez->ApellidoPaterno,'ApellidoMaterno'=>$juez->ApellidoMaterno,'FechaComienzo'=>$juez->FechaComienzo)));0
-		//$resul = $this->modelo_juez->delete_juez($_POST["idJuez"]);
-		//echo $resul;
-		return $resul;
-	}
+  public function actualizaJuez(){
+    $resul = $this->modelo_juez->update_juez($_POST["idJuez"],$_POST["Nombre"],$_POST["ApellidoPaterno"],$_POST["ApellidoMaterno"],$_POST["FechaComienzo"]);
+    echo $resul;  
+    return $resul;
+  }
+  
+  //Borra juez
+  public function borraJuez($idJuez){
+    $resul = $this->modelo_juez->delete_juez($idJuez);
+    return $resul;
+  }
 
   //////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////*PERIODICO*////////////////////////////////////////
   public function Ver_Periodicos(){
-    $EE_modelo = $this->model('periodicoModel');
-	$periodicos = $EE_modelo->select_all_periodicos();
-	$this->view('periodico/mostrar_periodicos', ['periodicos'=>$periodicos]);
+    $periodicos = $this->modelo_periodico->select_all_periodicos();
+    $this->view('periodico/gestionar_periodico', ['periodicos'=>$periodicos]);
   }
 
   public function Agregar_Periodico(){
@@ -113,6 +134,23 @@ class Index extends Controller
     $EE_modelo = $this->model('periodicoModel');
     $EE_modelo->registra_periodico($_POST["NombrePeriodico"],$_POST["CallePeriodico"],$_POST["NumeroPeriodico"],$_POST["ColoniaPeriodico"],$_POST["MunicipioPeriodico"],$_POST["EstadoPeriodico"],$_POST["PaisPeriodico"],$_POST["Tiraje"]);
      $this->view('periodico/insertar_periodico');
+  }
+
+  public function actualizar_Periodico($NombrePeriodico){
+        $consulta_actualiza = $this->modelo_periodico->consulta_actualizar($NombrePeriodico);
+        $periodico = $consulta_actualiza->fetch_object();
+        die(json_encode(array('NombrePeriodico'=>$periodico->NombrePeriodico,'Tiraje'=>$periodico->Tiraje,'CallePeriodico'=>$periodico->CallePeriodico,'NumeroPeriodico'=>$periodico->NumeroPeriodico,'ColoniaPeriodico'=>$periodico->ColoniaPeriodico,'MunicipioPeriodico'=>$periodico->MunicipioPeriodico,'EstadoPeriodico'=>$periodico->EstadoPeriodico,'PaisPeriodico'=>$periodico->PaisPeriodico)));
+  }
+  
+  public function actualizaPeriodico(){
+    $resul = $this->modelo_periodico->update_periodico($_POST["NombrePeriodico1"],$_POST["Tiraje"],$_POST["CallePeriodico"],$_POST["NumeroPeriodico"],$_POST["ColoniaPeriodico"],$_POST["MunicipioPeriodico"], $_POST["EstadoPeriodico"],$_POST["PaisPeriodico"]);
+    echo $resul;  
+    return $resul;
+  }
+  
+  public function borraPeriodico($NombrePeriodico){
+    $resul = $this->modelo_periodico->delete_periodico($NombrePeriodico);
+    return $resul;
   }
 
   ///////////////////////////////////////////////////////////////////////////////////
