@@ -34,12 +34,6 @@ class Index extends Controller
 
   ///////////////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////*CASOS*/////////////////////////////////////////////////
-  public function Ver_Casos(){
-    $EE_modelo = $this->model('casoModel');
-	$casos = $EE_modelo->select_all_casos();
-	$this->view('caso/mostrar_casos', ['casos'=>$casos]);
-  }
-
   public function Antes_Caso(){
     $EE_modelo=$this->model('periodicoModel');
     $periodicos=$EE_modelo->select_names_periodicos();
@@ -52,6 +46,35 @@ class Index extends Controller
     $EE_modelo=$this->model('casoModel');
     $EE_modelo->registra_caso($_POST["idCaso"],$_POST["NombreCaso"],$_POST["Descripcion"],$_POST["Desvio"],$_POST["PaisOrigen"],$_POST["idPeriodico"],$_POST["FechaDescubrimiento"],$_POST["Dictamen"]);
     $this->view('caso/insertar_caso', ['periodicos'=>$periodicos]);
+  }
+
+  public function Ver_Casos(){
+    //$EE_modelo = $this->model('casoModel');
+  $casos = $this->modelo_caso->select_all_casos();
+  $this->view('caso/gestionar_caso', ['casos'=>$casos]);
+  }
+  
+  public function Descripcion_caso($idCaso){
+    $consulta_actualiza = $this->modelo_caso->select_descripcion_caso($idCaso);
+    $caso = $consulta_actualiza->fetch_object();
+    die(json_encode(array('idCaso'=>$caso->idCaso,'Descripcion'=>$caso->Descripcion)));
+  }
+  
+  public function actualizar_Caso($idCaso){
+        $consulta_actualiza = $this->modelo_caso->consulta_actualizar($idCaso);
+        $caso = $consulta_actualiza->fetch_object();
+        die(json_encode(array('idCaso'=>$caso->idCaso,'NombreCaso'=>$caso->NombreCaso,'Descripcion'=>$caso->Descripcion,'Desvio'=>$caso->Desvio,'PaisOrigen'=>$caso->PaisOrigen,'idPeriodico'=>$caso->idPeriodico,'FechaDescubrimiento'=>$caso->FechaDescubrimiento,'Dictamen'=>$caso->Dictamen)));
+  }
+  
+  public function actualizaCaso(){
+    $resul = $this->modelo_caso->update_caso($_POST["idCaso1"],$_POST["NombreCaso"],$_POST["Descripcion"],$_POST["Desvio"],$_POST["PaisOrigen"],$_POST["idPeriodico"], $_POST["FechaDescubrimiento"],$_POST["Dictamen"]);
+    echo $resul;  
+    return $resul;
+  }
+  
+  public function borraCaso($idCaso){
+    $resul = $this->modelo_caso->delete_caso($idCaso);
+    return $resul;
   }
 
   //////////////////////////////////////////////////////////////////////////////////////////
@@ -167,6 +190,29 @@ class Index extends Controller
     $EE_modelo = $this->model('partidoModel');
     $EE_modelo->registra_periodico($_POST["NombrePartido"],$_POST["CallePartido"],$_POST["NumeroPartido"],$_POST["ColoniaPartido"],$_POST["MunicipioPartido"],$_POST["EstadoPartido"],$_POST["PaisPartido"]);
      $this->view('partido/insertar_partido');
+  }
+
+  public function Telefonos_Partidos($NombrePartido){
+  $telpartidos = $this->modelo_partido->select_telefonos($NombrePartido);
+  echo $telpartidos;
+  return $telpartidos;
+  }
+
+  public function actualizar_Partido($NombrePartido){
+        $consulta_actualiza = $this->modelo_partido->consulta_actualizar($NombrePartido);
+        $Partido = $consulta_actualiza->fetch_object();
+        die(json_encode(array('NombrePartido'=>$Partido->NombrePartido,'CallePartido'=>$Partido->CallePartido,'NumeroPartido'=>$Partido->NumeroPartido,'ColoniaPartido'=>$Partido->ColoniaPartido,'MunicipioPartido'=>$Partido->MunicipioPartido,'EstadoPartido'=>$Partido->EstadoPartido,'PaisPartido'=>$Partido->PaisPartido)));
+  }
+  
+  public function actualizaPartido(){
+    $resul = $this->modelo_partido->update_partido($_POST["NombrePartido"],$_POST["CallePartido"],$_POST["NumeroPartido"],$_POST["ColoniaPartido"],$_POST["MunicipioPartido"], $_POST["EstadoPartido"],$_POST["PaisPartido"]);
+    echo $resul;  
+    return $resul;
+  }
+  
+  public function borraPartido($NombrePartido){
+    $resul = $this->modelo_partido->delete_partido($NombrePartido);
+    return $resul;
   }
 
   //////////////////////////////////////////////////////////////////////////////////////7

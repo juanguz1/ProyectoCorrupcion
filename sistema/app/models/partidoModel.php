@@ -29,6 +29,32 @@ class partidoModel
   $this->connection->query($query);
 }
 
+ function consulta_actualizar($NombrePartido){
+        $query = "select * from partido where NombrePartido='{$NombrePartido}'";
+        $consulta_actualizar = $this->connection->query($query);
+        return $consulta_actualizar ? $consulta_actualizar : array();      
+  }
+  
+  function update_partido($NombrePartido,$TelefonoPartido, $CallePartido, $NumeroPartido, $ColoniaPartido, $MunicipioPartido, $EstadoPartido, $PaisPartido){
+    $query = "UPDATE partido set CallePartido='{$CallePartido}', NumeroPartido='{$NumeroPartido}', ColoniaPartido='{$ColoniaPartido}', MunicipioPartido='{$MunicipioPartido}', EstadoPartido='{$EstadoPartido}' WHERE NombrePartido = '{$NombrePartido}'";
+    if($this->connection->query($query) === TRUE){
+      $res="Actualizado";
+    }else{
+       $res=$this->connection->error;
+      }
+      return $res; 
+  }
+  
+  function delete_partido($NombrePartido){
+        $query = "DELETE FROM partido WHERE NombrePartido='{$NombrePartido}'";
+    if($this->connection->query($query) === TRUE){
+      $res="Borrado";
+    }else{
+       $res=$this->connection->error;
+      }
+      echo $res;
+      return $res;    
+    }
 
 
 }
