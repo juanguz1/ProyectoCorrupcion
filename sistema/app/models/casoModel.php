@@ -29,5 +29,41 @@ class casoModel
   $this->connection->query($query);
   }
 
+  function select_descripcion_caso($idCaso){
+    $query = "select idCaso, Descripcion from caso where idCaso='{$idCaso}'";
+    $tildes = $this->connection->query("SET NAMES 'utf8'");
+    $caso = $this->connection->query($query);
+    return $caso ? $caso:array();
+  }
+  
+  function consulta_actualizar($idCaso){
+        $query = "select * from caso where idCaso='{$idCaso}'";
+        $consulta_actualizar = $this->connection->query($query);
+        return $consulta_actualizar ? $consulta_actualizar : array();      
+  }
+  
+  function update_caso($idCaso,$NombreCaso,$Descripcion,$Desvio,$PaisOrigen, $idPeriodico, $FechaDescubrimiento, $Dictamen){
+    $query = "UPDATE caso set NombreCaso='{$NombreCaso}', Descripcion='{$Descripcion}', Desvio='{$Desvio}', 
+        PaisOrigen='{$PaisOrigen}',FechaDescubrimiento='{$FechaDescubrimiento}', Dictamen='{$Dictamen}' 
+        WHERE idCaso = '{$idCaso}'";
+    if($this->connection->query($query) === TRUE){
+      $res="Actualizado";
+    }else{
+       $res=$this->connection->error;
+      }
+      return $res; 
+    }
+  
+  function delete_caso($idCaso){
+        $query = "DELETE FROM caso WHERE idCaso='{$idCaso}'";
+    if($this->connection->query($query) === TRUE){
+      $res="Borrado";
+    }else{
+       $res=$this->connection->error;
+      }
+      echo $res;
+      return $res;    
+    }
+
 
 }

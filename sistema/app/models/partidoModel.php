@@ -24,19 +24,22 @@ class partidoModel
     return $partidos ? $partidos:array();
   }
 
-  function registra_partido($NombrePartido,$CallePartido,$NumeroPartido,$ColoniaPartido,$MunicipioPartido,$EstadoPartido,$PaisPartido){
-  $query="INSERT INTO Partido VALUES ('$NombrePartido','$CallePartido','$NumeroPartido','$ColoniaPartido','$MunicipioPartido','$EstadoPartido','$PaisPartido')";
-  $this->connection->query($query);
-}
-
- function consulta_actualizar($NombrePartido){
+  function select_telefonos($NombrePartido){
+    $query = "select TelefonoPartido from telefonopartido where NombrePartido = '{$NombrePartido}'";
+  echo $query;
+  $tildes = $this->connection->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+    $telefonopartido = $this->connection->query($query);
+    return $telefonopartido ? $telefonopartido:array();
+  }
+  
+  function consulta_actualizar($NombrePartido){
         $query = "select * from partido where NombrePartido='{$NombrePartido}'";
         $consulta_actualizar = $this->connection->query($query);
         return $consulta_actualizar ? $consulta_actualizar : array();      
   }
   
   function update_partido($NombrePartido,$TelefonoPartido, $CallePartido, $NumeroPartido, $ColoniaPartido, $MunicipioPartido, $EstadoPartido, $PaisPartido){
-    $query = "UPDATE partido set CallePartido='{$CallePartido}', NumeroPartido='{$NumeroPartido}', ColoniaPartido='{$ColoniaPartido}', MunicipioPartido='{$MunicipioPartido}', EstadoPartido='{$EstadoPartido}' WHERE NombrePartido = '{$NombrePartido}'";
+    $query = "UPDATE partido set CallePartido='{$CallePartido}', TelefonoPartido='{$TelefonoPartido}', NumeroPartido='{$NumeroPartido}', ColoniaPartido='{$ColoniaPartido}', MunicipioPartido='{$MunicipioPartido}', EstadoPartido='{$EstadoPartido}' WHERE NombrePartido = '{$NombrePartido}'";
     if($this->connection->query($query) === TRUE){
       $res="Actualizado";
     }else{
@@ -55,6 +58,4 @@ class partidoModel
       echo $res;
       return $res;    
     }
-
-
 }

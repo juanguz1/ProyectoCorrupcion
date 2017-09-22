@@ -4,9 +4,7 @@
 <?php startblock('title') ?>
     Gestionar partidos
 <?php endblock() ?>
-<!--<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>-->
+
 <?php startblock('main') ?>
     <p> Consulte, actualice o elimine partidos.</p>
 
@@ -37,9 +35,7 @@
 													print "<tr style='background: white;'id='{$partidos['NombrePartido']}'>"; //fila normal
 		
 														print "<th> {$partidos['NombrePartido']}</th>";
-														print "<th>";
-															print "<button type='button' class='btn btn-outline btn-info VerTelefono' style='margin:auto;' data-toggle='modal' data-target='#verTelefono' data-nombrepartido={$partidos['NombrePartido']} id='{$partidos['NombrePartido']}b'>Ver más</button>"; 
-														print "</th>";
+														print "<th> {$partidos['TelefonoPartido']}</th>";
 														print "<th> {$partidos['CallePartido']}</th>";
 														print "<th> {$partidos['NumeroPartido']}</th>";
 														print "<th> {$partidos['ColoniaPartido']}</th>";
@@ -64,31 +60,6 @@
 				</div>
             </div>
 			
-			<!--VER DIRECCIÓN-->
-			<div id="verTelefono" class="modal fade" role="dialog">
-				<div class="modal-dialog" style="width:650px;">
-					<!-- Modal content-->
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h2 class="modal-title" style="">Teléfonos del partido</h2>
-						</div>
-						<div class="modal-body">
-							<table class="table table-hover" style="text-align:center;">
-								<thead  style="background: #288CCC">
-									<tr style='color:white;'>
-										<th style='text-align:center'>Teléfonos</th>
-									</tr>
-									<div name='conTel' id='conTel'>
-									</div>
-									
-								</thead>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-			
 			<!-- ACTUALIZAR CUENTA -->
 			<div id="ActualizarModal" class="modal fade" role="dialog">
 				<div class="modal-dialog" style="width:650px;">
@@ -112,13 +83,13 @@
 										<br>
 									</div>
 								</div>
-								<!--<div class="form-group">
+								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Teléfono</label>
 									<div class="col-sm-8">
 										<input type="text" class="form-control" id="TelefonoPartido" name="TelefonoPartido">
 										<br>
 									</div>
-								</div>-->
+								</div>
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Calle <span style="color:red;">*</span></label>
 									<div class="col-sm-8">
@@ -175,41 +146,6 @@
 	<script src="<?= $url_path?>Interno/js/jquery-3.1.1.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	$(document).ready(function () {
-		$('.VerTelefono').on('click',function(){
-			//console.log(String($(this).data('nombrepartido')));
-			var url = "/ProyectoCorrupcion/sistema/public/Index/Telefonos_Partidos/"+$(this).data('nombrepartido');
-			alert(url);
-			$.ajax({
-			type: "POST",
-			url: url,
-			contentType: "application/x-www-form-urlencoded",
-			dataType: "json",  /* Esto es lo que indica que la respuesta será un objeto JSon */
-			success: function(data){
-				alert(data);
-				//console.log(data);
-				//telefonos = JSON.parse(data);
-				$.each(data, function(index, value){
-					/* Vamos agregando a nuestra tabla las filas necesarias */
-					$("#conTel").append("<tr><td>" + telefonos.telpartidos + "</td></tr>");
-				});
-				/*$('#NombrePartido').val(direccion.NombrePartido);
-				$('#hiddenCiudadano').val(direccion.NombrePartido);
-				$('#Calle').val(direccion.Calle);
-				$('#hiddenCalle').val(direccion.Calle);
-				$('#Numero').val(direccion.Numero);
-				$('#hiddenNumero').val(direccion.Numero);
-				$('#Colonia').val(direccion.Colonia);
-				$('#hiddenColonia').val(direccion.Colonia);
-				$('#Municipio').val(direccion.Municipio);
-				$('#hiddenMunicipio').val(direccion.Municipio);
-				$('#Estado').val(direccion.Estado);
-				$('#hiddenEstado').val(direccion.Estado);
-				$('#Pais').val(direccion.Pais);
-				$('#hiddenPais').val(direccion.Pais);*/
-			}
-			});
-		});	
-		
 		$('.Update').on('click',function(){
 			console.log(String($(this).data('nombrepartido')));
 			var url = "/ProyectoCorrupcion/sistema/public/Index/actualizar_Partido/"+$(this).data('nombrepartido');
@@ -217,12 +153,11 @@
 			type: "GET",
 			url: url,
 			success: function(data){
-				alert (data);
 				console.log(data);
 				partido = JSON.parse(data);
 				$('#NombrePartido1').val(partido.NombrePartido);
 				$('#hiddenNomPar1').val(partido.NombrePartido);
-				//$('#TelefonoPartido').val(partido.TelefonoPartido);
+				$('#TelefonoPartido').val(partido.TelefonoPartido);
 				$('#Calle1').val(partido.CallePartido);
 				$('#Numero1').val(partido.NumeroPartido);
 				$('#Colonia1').val(partido.ColoniaPartido);
@@ -255,9 +190,7 @@
 			console.log(String($(this).data('nombrepartido')));
 			var url = "/ProyectoCorrupcion/sistema/public/Index/borraPartido/"+$(this).data('nombrepartido');
 			var mensaje = confirm("¿Estas seguro que deseas elimnar el partido?");
-			//Detectamos si el usuario acepto el mensaje
 			if (mensaje) {
-				//alert("¡Gracias por aceptar!");
 				$.ajax({
 				type:"GET",
 				url: url, 

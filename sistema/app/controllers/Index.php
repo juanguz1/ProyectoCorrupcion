@@ -8,8 +8,10 @@ class Index extends Controller
 
   function __construct(){
     $this->modelo_juez = $this->model('juezModel');
+    $this->modelo_caso = $this->model('casoModel');
     $this->modelo_ciudadano = $this->model('ciudadanoModel');
     $this->modelo_periodico = $this->model('periodicoModel');
+    $this->modelo_partido =  $this->model('partidoModel');
   }
 
   function caso(){
@@ -49,11 +51,10 @@ class Index extends Controller
   }
 
   public function Ver_Casos(){
-    //$EE_modelo = $this->model('casoModel');
-  $casos = $this->modelo_caso->select_all_casos();
-  $this->view('caso/gestionar_caso', ['casos'=>$casos]);
+    $casos = $this->modelo_caso->select_all_casos();
+    $this->view('caso/gestionar_caso', ['casos'=>$casos]);
   }
-  
+
   public function Descripcion_caso($idCaso){
     $consulta_actualiza = $this->modelo_caso->select_descripcion_caso($idCaso);
     $caso = $consulta_actualiza->fetch_object();
@@ -67,7 +68,7 @@ class Index extends Controller
   }
   
   public function actualizaCaso(){
-    $resul = $this->modelo_caso->update_caso($_POST["idCaso1"],$_POST["NombreCaso"],$_POST["Descripcion"],$_POST["Desvio"],$_POST["PaisOrigen"],$_POST["idPeriodico"], $_POST["FechaDescubrimiento"],$_POST["Dictamen"]);
+    $resul = $this->modelo_caso->update_caso($_POST["idCaso1"],$_POST["Nombre1"],$_POST["Descripcion1"],$_POST["Desvio"],$_POST["PaisOrigen"],$_POST["idPeriodico"], $_POST["FechaDescubrimiento"],$_POST["Dictamen"]);
     echo $resul;  
     return $resul;
   }
@@ -178,10 +179,10 @@ class Index extends Controller
 
   ///////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////*PARTIDO*///////////////////////////////////////
-  public function Ver_Partidos(){
+   public function Ver_Partidos(){
     $EE_modelo = $this->model('partidoModel');
-	$partidos = $EE_modelo->select_all_partidos();
-	$this->view('partido/mostrar_partidos', ['partidos'=>$partidos]);
+    $partidos = $EE_modelo->select_all_partidos();
+    $this->view('partido/gestionar_partido', ['partidos'=>$partidos]);
   }
 
   public function Agregar_partidos(){
@@ -201,11 +202,11 @@ class Index extends Controller
   public function actualizar_Partido($NombrePartido){
         $consulta_actualiza = $this->modelo_partido->consulta_actualizar($NombrePartido);
         $Partido = $consulta_actualiza->fetch_object();
-        die(json_encode(array('NombrePartido'=>$Partido->NombrePartido,'CallePartido'=>$Partido->CallePartido,'NumeroPartido'=>$Partido->NumeroPartido,'ColoniaPartido'=>$Partido->ColoniaPartido,'MunicipioPartido'=>$Partido->MunicipioPartido,'EstadoPartido'=>$Partido->EstadoPartido,'PaisPartido'=>$Partido->PaisPartido)));
+        die(json_encode(array('NombrePartido'=>$Partido->NombrePartido,'TelefonoPartido'=>$Partido->TelefonoPartido,'CallePartido'=>$Partido->CallePartido,'NumeroPartido'=>$Partido->NumeroPartido,'ColoniaPartido'=>$Partido->ColoniaPartido,'MunicipioPartido'=>$Partido->MunicipioPartido,'EstadoPartido'=>$Partido->EstadoPartido,'PaisPartido'=>$Partido->PaisPartido)));
   }
   
   public function actualizaPartido(){
-    $resul = $this->modelo_partido->update_partido($_POST["NombrePartido"],$_POST["CallePartido"],$_POST["NumeroPartido"],$_POST["ColoniaPartido"],$_POST["MunicipioPartido"], $_POST["EstadoPartido"],$_POST["PaisPartido"]);
+    $resul = $this->modelo_partido->update_partido($_POST["NombrePartido1"], $_POST["TelefonoPartido"], $_POST["Calle1"],$_POST["Numero1"],$_POST["Colonia1"],$_POST["Municipio1"], $_POST["Estado1"],$_POST["Pais1"]);
     echo $resul;  
     return $resul;
   }

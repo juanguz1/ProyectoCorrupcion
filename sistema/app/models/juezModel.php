@@ -23,34 +23,34 @@ class juezModel
     $jueces = $this->connection->query($query);
     return $jueces ? $jueces:array();
   }
-  
+
   function consulta_actualizar($idJuez){
         $query = "select juez.idJuez, ciudadano.Nombre, ciudadano.ApellidoPaterno, ciudadano.ApellidoMaterno, 
-					juez.FechaComienzo from juez inner join ciudadano on juez.idJuez=ciudadano.idCiudadano  
-					where juez.idJuez='{$idJuez}'";
+          juez.FechaComienzo from juez inner join ciudadano on juez.idJuez=ciudadano.idCiudadano  
+          where juez.idJuez='{$idJuez}'";
         $consulta_actualizar = $this->connection->query($query);
         return $consulta_actualizar ? $consulta_actualizar : array();      
     }
-	
+  
    function update_juez($idJuez,$Nombre,$ApellidoPaterno,$ApellidoMaterno,$FechaComienzo){
         $query = "UPDATE juez set FechaComienzo = '{$FechaComienzo}' WHERE idJuez = '{$idJuez}'";
-		if($this->connection->query($query) === TRUE){
-			$res="Actualizado";
-		}else{
-			 $res=$this->connection->error;
-		  }
+    if($this->connection->query($query) === TRUE){
+      $res="Actualizado";
+    }else{
+       $res=$this->connection->error;
+      }
       return $res; 
     }
-	
-	function delete_juez($idJuez){
+  
+  function delete_juez($idJuez){
         $query = "DELETE FROM juez WHERE idJuez='{$idJuez}'";
-		echo $query;
-		if($this->connection->query($query) === TRUE){
-			$res="Borrado";
-		}else{
-			 $res=$this->connection->error;
-		  }
-      return $res; 
+    if($this->connection->query($query) === TRUE){
+      $res="Borrado";
+    }else{
+       $res=$this->connection->error;
+      }
+      echo $res;
+      return $res;    
     }
   
 } 

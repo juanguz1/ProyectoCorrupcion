@@ -211,7 +211,6 @@
 			type: "GET",
 			url: url,
 			success: function(data){
-				alert(data);
 				console.log(data);
 				caso = JSON.parse(data);
 				$('#idCaso1').val(caso.idCaso);

@@ -35,7 +35,7 @@ class periodicoModel
   $query="INSERT INTO Periodico  VALUES ('$NombrePeriodico','$CallePeriodico','$NumeroPeriodico','$ColoniaPeriodico','$MunicipioPeriodico','$EstadoPeriodico','$PaisPeriodico','$Tiraje')";
   $this->connection->query($query);
 }
-  
+
   function consulta_actualizar($NombrePeriodico){
         $query = "select * from periodico where NombrePeriodico='{$NombrePeriodico}'";
         $consulta_actualizar = $this->connection->query($query);
