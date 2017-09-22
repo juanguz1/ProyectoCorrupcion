@@ -124,6 +124,12 @@ class Index extends Controller
   $jueces = $EE_modelo->select_all_jueces();
   $this->view('juez/gestionar_juez', ['jueces'=>$jueces]);
   }
+
+  public function registrar_cuentaJuez(){
+        $resul = $this->modelo_juez->registrar($_POST["ciudadano"],$_POST["FechaComienzo"]);
+    echo $resul;  
+    return $resul;
+    }
   
   //Recibe informacion y la manda al modal
     public function actualizar_Juez($idJuez){

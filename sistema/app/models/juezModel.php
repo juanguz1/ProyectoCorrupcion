@@ -17,6 +17,13 @@ class juezModel
     $this->connection->query("SET NAMES 'utf8'");
 }
 
+function consulta_ciudadano(){
+        //$query = "select distinct idCiudadano, concat(Nombre,' ', ApellidoPaterno,' ', ApellidoMaterno) as NombreCompleto from ciudadano inner join juez where ciudadano.idCiudadano!=juez.idJuez";
+        $query = "select ciudadano.idCiudadano, concat(Nombre,' ', ApellidoPaterno,' ', ApellidoMaterno) as NombreCompleto from ciudadano left join juez on (juez.idJuez=ciudadano.idCiudadano) where juez.idJuez is null";
+    $ciudadano = $this->connection->query($query);
+        return $ciudadano ? $ciudadano : array();
+    }
+
   function select_all_jueces(){
     $query = 'select juez.idJuez, ciudadano.Nombre, ciudadano.ApellidoPaterno, ciudadano.ApellidoMaterno, juez.FechaComienzo from juez inner join ciudadano on juez.idJuez=ciudadano.idCiudadano';
 	$tildes = $this->connection->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
