@@ -35,25 +35,25 @@ class casoModel
     $caso = $this->connection->query($query);
     return $caso ? $caso:array();
   }
-  
+
   function consulta_actualizar($idCaso){
         $query = "select * from caso where idCaso='{$idCaso}'";
         $consulta_actualizar = $this->connection->query($query);
-        return $consulta_actualizar ? $consulta_actualizar : array();      
+        return $consulta_actualizar ? $consulta_actualizar : array();
   }
-  
+
   function update_caso($idCaso,$NombreCaso,$Descripcion,$Desvio,$PaisOrigen, $idPeriodico, $FechaDescubrimiento, $Dictamen){
-    $query = "UPDATE caso set NombreCaso='{$NombreCaso}', Descripcion='{$Descripcion}', Desvio='{$Desvio}', 
-        PaisOrigen='{$PaisOrigen}',FechaDescubrimiento='{$FechaDescubrimiento}', Dictamen='{$Dictamen}' 
+    $query = "UPDATE caso set NombreCaso='{$NombreCaso}', Descripcion='{$Descripcion}', Desvio='{$Desvio}',
+        PaisOrigen='{$PaisOrigen}',FechaDescubrimiento='{$FechaDescubrimiento}', Dictamen='{$Dictamen}'
         WHERE idCaso = '{$idCaso}'";
     if($this->connection->query($query) === TRUE){
       $res="Actualizado";
     }else{
        $res=$this->connection->error;
       }
-      return $res; 
+      return $res;
     }
-  
+
   function delete_caso($idCaso){
         $query = "DELETE FROM caso WHERE idCaso='{$idCaso}'";
     if($this->connection->query($query) === TRUE){
@@ -62,8 +62,22 @@ class casoModel
        $res=$this->connection->error;
       }
       echo $res;
-      return $res;    
+      return $res;
     }
+
+    function consulta_casos(){
+
+            $query = "select idCaso, NombreCaso From caso" ;
+            $casos = $this->connection->query($query);
+            return $casos ? $casos : array();
+        }
+
+        function registra_implicado($idCiudadano,$idCaso,$Cargo){
+
+                $query = "INSERT INTO casociudadano VALUES ('$idCaso','$idCiudadano','$Cargo')" ;
+               $this->connection->query($query);
+
+            }
 
 
 }

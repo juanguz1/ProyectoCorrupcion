@@ -4,9 +4,10 @@
      Añadir nuevo ciudadano
   <?php endblock() ?>
 
-  <?php
-    echo' '
-  ?>
+
+
+
+
 
  <?php startblock('main') ?>
 	<div class="panel panel-default">
@@ -26,7 +27,7 @@
 
                             <label>Nombre</label>
                             <input name="Nombre" id="Nombre" class="form-control">
-							<p class="help-block">* Campo Obligatorio.</p>
+							              <p class="help-block">* Campo Obligatorio.</p>
 
                             <label>Apellido Paterno</label>
                             <input name="ApellidoPaterno" id="ApellidoPaterno"class="form-control">
@@ -39,13 +40,14 @@
                             <label>Fecha nacimiento</label>
                             <input type="date" name="FechaNacimiento" id="FechaNacimiento" class="form-control">
                             <p class="help-block">* Campo Obligatorio.</p>
-							<label>Patrimonio</label>
-							<div class="form-group input-group">
-								<span class="input-group-addon">$</span>
-									<input name="Patrimonio" id="Patrimonio" type="text" class="form-control">
-								<span class="input-group-addon">.00</span>
-							</div>
-							<p class="help-block">* Campo Obligatorio.</p>
+
+                						<label>Patrimonio</label>
+                							<div class="form-group input-group">
+                								<span class="input-group-addon">$</span>
+                									<input name="Patrimonio" id="Patrimonio" type="text" class="form-control">
+                								<span class="input-group-addon">.00</span>
+                							</div>
+                							<p class="help-block">* Campo Obligatorio.</p>
 
 
                         <h1>Direccion</h1>
@@ -73,7 +75,25 @@
                         <label>Pais</label>
                         <input name="Pais" id="Pais" class="form-control">
                         <p class="help-block">* Campo Obligatorio.</p>
-                        <input type="submit" value="Guardar" class="form-control" name="GuardaCiudadano" />
+
+
+                        <label>Afiliado a partido</label><br>
+                        <input type="checkbox" id="afiliado" name="afiliado" value="1" onchange="habilitar(this.checked);">
+
+                        <label>Puesto</label>
+                        <input name="Puesto" id="Puesto" class="form-control">
+                        <p class="help-block">* Campo Obligatorio.</p>
+
+                        <?php
+                           print "<select class='form-control' name='NombrePartido' id='NombrePartido'";
+                             while ($partidos=$data['partidos']->fetch_assoc()) {
+                               print "<option value={$partidos['NombrePartido']}>{$partidos['NombrePartido']}</option>";
+                             }
+                             print"</select>"
+                          ?>
+                        <br>
+
+                      <input type="submit" value="Guardar" class="form-control" name="GuardaCiudadano" />
                     </form>
                 </div>
             </div>

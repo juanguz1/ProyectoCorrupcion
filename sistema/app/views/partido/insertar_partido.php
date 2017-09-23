@@ -32,6 +32,10 @@
                         <input name="ColoniaPartido" id="ColoniaPartido" class="form-control" required>
                         <p class="help-block">* Campo Obligatorio.</p>
 
+                        <label>Municipio</label>
+                        <input name="MunicipioPartido" id="MunicipioPartido" class="form-control" required>
+                        <p class="help-block">* Campo Obligatorio.</p>
+
                         <label>Estado</label>
                         <input name="EstadoPartido" id="EstadoPartido" class="form-control" required>
                         <p class="help-block">* Campo Obligatorio.</p>
@@ -39,6 +43,19 @@
                         <label>Pais</label>
                         <input name="PaisPartido" id="PaisPartido" class="form-control" required>
                         <p class="help-block">* Campo Obligatorio.</p>
+
+                        <label>Numero telefonico</label>
+                        <input name="TelefonoPartido" id="TelefonoPartido" class="form-control" required>
+                        <p class="help-block">* Campo Obligatorio.</p>
+
+                        <?php
+                           print "<select class='form-control' name='idPeriodico' id='idPeriodico'";
+                             while ($periodicos=$data['periodicos']->fetch_assoc()) {
+                               print "<option value={$periodicos['NombrePeriodico']}>{$periodicos['NombrePeriodico']}</option>";
+                             }
+                             print"</select>"
+                          ?>
+
 
                         <input type="submit" value="Guardar" class="form-control" name="GuardaPartido" />
                     </form>

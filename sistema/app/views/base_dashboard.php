@@ -75,6 +75,10 @@
 							<li>
                                 <a href="#">Editar caso</a>
                             </li>
+
+                            <li>
+                                  <a href="imputado">Agregar imputados</a>
+                            </li>
 							<li>
                                 <a href="Ver_Casos">Ver casos</a>
                             </li>
@@ -87,7 +91,7 @@
                         <a href="#"><i class="fa fa-users fa-fw"></i> Ciudadanos<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="ciudadano">Añadir ciudadano</a>
+                                <a href="Antes_Ciudadano">Añadir ciudadano</a>
                             </li>
 							<li>
                                 <a href="#">Editar ciudadano</a>
@@ -104,7 +108,7 @@
                         <a href="#"><i class="fa fa-gavel fa-fw"></i> Juez<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Añadir juez</a>
+                                <a href="registrar_cuentaJuez">Añadir juez</a>
                             </li>
 							<li>
                                 <a href="#">Editar juez</a>
@@ -140,7 +144,7 @@
                         <a href="#"><i class="fa fa-bookmark fa-fw"></i> Partido<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Añadir partido</a>
+                                <a href="Antes_Partido">Añadir partido</a>
                             </li>
 							<li>
                                 <a href="#">Editar partido</a>
