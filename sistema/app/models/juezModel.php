@@ -31,6 +31,16 @@ function consulta_ciudadano(){
     return $jueces ? $jueces:array();
   }
 
+  function registrar($idJuez,$FechaComienzo){
+        $query = "INSERT INTO juez VALUES ('{$idJuez}', '{$FechaComienzo}')";
+        if($this->connection->query($query) === TRUE){
+      $res="Registrado";
+    }else{
+       $res=$this->connection->error;
+      }
+      return $res; 
+    }
+
   function consulta_actualizar($idJuez){
         $query = "select juez.idJuez, ciudadano.Nombre, ciudadano.ApellidoPaterno, ciudadano.ApellidoMaterno, 
           juez.FechaComienzo from juez inner join ciudadano on juez.idJuez=ciudadano.idCiudadano  
