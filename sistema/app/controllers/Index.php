@@ -23,7 +23,8 @@ class Index extends Controller
   }
 
   function juez(){
-	   $this->view('juez/insertar_juez');
+     $consul_ciu = $this->modelo_juez->consulta_ciudadano();
+     $this->view('juez/insertar_juez',['ciudadanos'=>$consul_ciu]);
   }
 
   function periodico(){
