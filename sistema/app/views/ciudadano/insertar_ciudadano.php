@@ -21,30 +21,30 @@
                     <form role="form" action="Agregar_Ciudadano" method="post">
                         <div class="form-group">
                           <label>Clave ciudadano</label>
-                          <input name="idCiudadano" id="idCiudadano" class="form-control">
+                          <input name="idCiudadano" id="idCiudadano" class="form-control" required>
             <p class="help-block">* Campo Obligatorio.</p>
 
 
                             <label>Nombre</label>
-                            <input name="Nombre" id="Nombre" class="form-control">
+                            <input name="Nombre" id="Nombre" class="form-control" required>
 							              <p class="help-block">* Campo Obligatorio.</p>
 
                             <label>Apellido Paterno</label>
-                            <input name="ApellidoPaterno" id="ApellidoPaterno"class="form-control">
+                            <input name="ApellidoPaterno" id="ApellidoPaterno"class="form-control" required>
                             <p class="help-block">* Campo Obligatorio.</p>
 
                             <label>Apellido Materno</label>
-                            <input name="ApellidoMaterno" id="ApellidoMaterno" class="form-control">
+                            <input name="ApellidoMaterno" id="ApellidoMaterno" class="form-control" required>
                             <p class="help-block">* Campo Obligatorio.</p>
 
                             <label>Fecha nacimiento</label>
-                            <input type="date" name="FechaNacimiento" id="FechaNacimiento" class="form-control">
+                            <input type="date" name="FechaNacimiento" id="FechaNacimiento" class="form-control" required>
                             <p class="help-block">* Campo Obligatorio.</p>
 
                 						<label>Patrimonio</label>
                 							<div class="form-group input-group">
                 								<span class="input-group-addon">$</span>
-                									<input name="Patrimonio" id="Patrimonio" type="text" class="form-control">
+                									<input name="Patrimonio" id="Patrimonio" type="text" class="form-control" required>
                 								<span class="input-group-addon">.00</span>
                 							</div>
                 							<p class="help-block">* Campo Obligatorio.</p>
@@ -53,27 +53,27 @@
                         <h1>Direccion</h1>
 
                         <label>Calle</label>
-                        <input name="Calle" id="Calle" class="form-control">
+                        <input name="Calle" id="Calle" class="form-control" required>
                         <p class="help-block">* Campo Obligatorio.</p>
 
                         <label>Número</label>
-                        <input name="Numero" id="Numero" class="form-control">
+                        <input name="Numero" id="Numero" class="form-control" required>
                         <p class="help-block">* Campo Obligatorio.</p>
 
                         <label>Colonia</label>
-                        <input name="Colonia" id="Colonia" class="form-control">
+                        <input name="Colonia" id="Colonia" class="form-control" required>
                         <p class="help-block">* Campo Obligatorio.</p>
 
                         <label>Municipio</label>
-                        <input name="Municipio" id="Municipio" class="form-control">
+                        <input name="Municipio" id="Municipio" class="form-control" required>
                         <p class="help-block">* Campo Obligatorio.</p>
 
                         <label>Estado</label>
-                        <input name="Estado" id="Estado" class="form-control">
+                        <input name="Estado" id="Estado" class="form-control" required>
                         <p class="help-block">* Campo Obligatorio.</p>
 
                         <label>Pais</label>
-                        <input name="Pais" id="Pais" class="form-control">
+                        <input name="Pais" id="Pais" class="form-control" required>
                         <p class="help-block">* Campo Obligatorio.</p>
 
 

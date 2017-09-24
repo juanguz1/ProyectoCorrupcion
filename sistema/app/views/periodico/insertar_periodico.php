@@ -16,37 +16,37 @@
                     <form role="form" action="Agregar_Periodico" method="post">
                         <div class="form-group">
                             <label>Nombre Periódico</label>
-                            <input name="NombrePeriodico" id="NombrePeriodico" class="form-control">
+                            <input name="NombrePeriodico" id="NombrePeriodico" class="form-control" required>
                             <p class="help-block">* Campo Obligatorio.</p>
 
 							<label>Tiraje</label>
-                            <input name="Tiraje" id="Tiraje" class="form-control">
+                            <input name="Tiraje" id="Tiraje" class="form-control" required>
                             <p class="help-block">* Campo Obligatorio.</p>
 
 							<h1>Dirección</h1>
-                    
+
                                 <label>Calle</label>
-                                <input name="CallePeriodico" id="CallePeriodico" class="form-control">
+                                <input name="CallePeriodico" id="CallePeriodico" class="form-control" required>
                                 <p class="help-block">* Campo Obligatorio.</p>
 
                                 <label>Número</label>
-                                <input name="NumeroPeriodico" id="NumeroPeriodico" class="form-control">
+                                <input name="NumeroPeriodico" id="NumeroPeriodico" class="form-control" required>
                                 <p class="help-block">* Campo Obligatorio.</p>
 
                                 <label>Colonia</label>
-                                <input name="ColoniaPeriodico" id="ColoniaPeriodico" class="form-control">
+                                <input name="ColoniaPeriodico" id="ColoniaPeriodico" class="form-control" required>
                                 <p class="help-block">* Campo Obligatorio.</p>
 
                                 <label>Municipio</label>
-                                <input name="MunicipioPeriodico" id="MunicipioPeriodico" class="form-control">
+                                <input name="MunicipioPeriodico" id="MunicipioPeriodico" class="form-control" required>
                                 <p class="help-block">* Campo Obligatorio.</p>
 
                                 <label>Estado</label>
-                                <input name="EstadoPeriodico" id="EstadoPeriodico" class="form-control">
+                                <input name="EstadoPeriodico" id="EstadoPeriodico" class="form-control" required>
                                 <p class="help-block">* Campo Obligatorio.</p>
 
                                 <label>País</label>
-                                <input name="PaisPeriodico" id="PaisPeriodico" class="form-control">
+                                <input name="PaisPeriodico" id="PaisPeriodico" class="form-control" required>
                                 <p class="help-block">* Campo Obligatorio.</p>
 
 

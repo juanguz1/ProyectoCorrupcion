@@ -18,20 +18,20 @@
 		<div class="panel-body">
 			<div class="row">
                 <div class="col-lg-6">
-                    <form role="form" action="Agregar_inputado" method="post">
+                    <form role="form" action="Agregar_inputado" method="post" >
                         <div class="form-group">
 
 
 
                           <?php
-                             print "<select class='form-control' name='idCiudadano' id='idCiudadano'";
+                             print "<select class='form-control' name='idCiudadano' id='idCiudadano' >";
                                while ($ciudadanos=$data['ciudadanos']->fetch_assoc()) {
                                  print "<option value={$ciudadanos['idCiudadano']}>{$ciudadanos['NombreCompleto']}</option>";
                                }
                                print"</select>"
                             ?>
                         <?php
-                           print "<select class='form-control' name='idCaso' id='idCaso'";
+                           print "<select class='form-control' name='idCaso' id='idCaso' >";
                              while ($casos=$data['casos']->fetch_assoc()) {
                                print "<option value={$casos['idCaso']}>{$casos['NombreCaso']}</option>";
                              }
@@ -40,7 +40,7 @@
                         <br>
 
                         <label>Cargo que se le imputa</label>
-                        <input name="Cargo" id="Cargo" class="form-control">
+                        <input name="Cargo" id="Cargo" class="form-control " required>
                         <p class="help-block">* Campo Obligatorio.</p>
 
                       <input type="submit" value="Guardar" class="form-control" name="GuardaCiudadano" />
