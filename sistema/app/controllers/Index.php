@@ -225,6 +225,7 @@ class Index extends Controller
     $EE_modelo= $this->model('partidoModel');
     $EE_modelo->registrar_partido($_POST["NombrePartido"],$_POST["TelefonoPartido"],$_POST["CallePartido"],$_POST["NumeroPartido"],$_POST["ColoniaPartido"],$_POST["MunicipioPartido"],$_POST["EstadoPartido"],$_POST["PaisPartido"]);
     $EE_modelo->registrar_partidoperidoco($_POST["NombrePartido"],$_POST["idPeriodico"]);
+    $partidos = $EE_modelo->select_all_partidos();
     $this->view('partido/gestionar_partido', ['partidos'=>$partidos]);
   }
 
