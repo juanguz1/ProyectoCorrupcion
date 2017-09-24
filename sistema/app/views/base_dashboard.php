@@ -72,9 +72,7 @@
                             <li>
                                 <a href="Antes_Caso">Añadir caso</a>
                             </li>
-							<li>
-                                <a href="#">Editar caso</a>
-                            </li>
+
 
                             <li>
                                   <a href="imputado">Agregar imputados</a>
@@ -82,9 +80,7 @@
 							<li>
                                 <a href="Ver_Casos">Ver casos</a>
                             </li>
-							<li>
-                                <a href="#">Eliminar caso</a>
-                            </li>
+
                         </ul>
                     </li>
                     <li>
@@ -93,32 +89,24 @@
                             <li>
                                 <a href="Antes_Ciudadano">Añadir ciudadano</a>
                             </li>
-							<li>
-                                <a href="#">Editar ciudadano</a>
-                            </li>
+
 							<li>
                                 <a href="Ver_Ciudadanos">Ver ciudadanos</a>
                             </li>
-							<li>
-                                <a href="#">Eliminar ciudadano</a>
-                            </li>
+
                         </ul>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-gavel fa-fw"></i> Juez<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="registrar_cuentaJuez">Añadir juez</a>
+                                <a href="juez">Añadir juez</a>
                             </li>
-							<li>
-                                <a href="#">Editar juez</a>
-                            </li>
+
 							<li>
                                 <a href="Ver_Jueces">Ver juez</a>
                             </li>
-							<li>
-                                <a href="#">Eliminar juez</a>
-                            </li>
+
                         </ul>
                     </li>
 
@@ -128,15 +116,11 @@
                             <li>
                                 <a href="periodico">Añadir periódico</a>
                             </li>
-							<li>
-                                <a href="#">Editar periódico</a>
-                            </li>
+
 							<li>
                                 <a href="Ver_Periodicos">Ver periódicos</a>
                             </li>
-							<li>
-                                <a href="#">Eliminar periódico</a>
-                            </li>
+
                         </ul>
                     </li>
 
@@ -146,15 +130,11 @@
                             <li>
                                 <a href="Antes_Partido">Añadir partido</a>
                             </li>
-							<li>
-                                <a href="#">Editar partido</a>
-                            </li>
+
 							<li>
                                 <a href="Ver_Partidos">Ver partidos</a>
                             </li>
-							<li>
-                                <a href="#">Eliminar partido</a>
-                            </li>
+
                         </ul>
                     </li>
                 </ul>

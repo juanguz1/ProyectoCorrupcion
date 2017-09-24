@@ -153,7 +153,7 @@ class Index extends Controller
   }
 
   public function registrar_cuentaJuez(){
-        $resul = $this->modelo_juez->registrar($_POST["ciudadano"],$_POST["FechaComienzo"]);
+    $resul = $this->modelo_juez->registrar($_POST["ciudadano"],$_POST["FechaComienzo"]);
     echo $resul;
     return $resul;
     }

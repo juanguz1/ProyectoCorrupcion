@@ -16,6 +16,8 @@
     <!-- Bootstrap Core CSS -->
     <link href="<?= $url_path ?>index/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
+    <link rel="icon" type="image/png" href="juez.png" />
+
     <!-- Custom CSS -->
     <link href="<?= $url_path ?>index/css/landing-page.css" rel="stylesheet" type="text/css">
 
@@ -50,7 +52,7 @@
                         <div class="col-lg-12 col-sm-6">
                             <h1 class="page-header">Sistema Gestor de casos de corrupción</h1>
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-lg-3 col-md-6">
                                 <div class="panel panel-success">
@@ -62,10 +64,10 @@
                                             <div class="col-xs-9 text-right">
                                                 <div class="huge">Casos de corrupción</div>
                                             </div>
-                                        </div>    
-                                    </div> 
+                                        </div>
+                                    </div>
 
-                                    <a href="Index/caso">
+                                    <a href="Index/Antes_Caso">
                                         <div class="panel-footer">
                                             <span class="pull-left">Ver detalles</span>
                                             <span class="pull-right">
@@ -87,11 +89,11 @@
                                             <div class="col-xs-9 text-right">
                                                 <div class="huge">Ciudadanos</div>
                                             </div>
-                                        </div>    
-                                    </div> 
+                                        </div>
+                                    </div>
 
                                     <!--<a href="Estudiante_Egresado/Solicitar_Tramite">-->
-									<a href = "Index/ciudadano">
+									<a href = "Index/Antes_Ciudadano">
                                         <div class="panel-footer">
                                             <span class="pull-left">Ver detalles</span>
                                             <span class="pull-right">
@@ -113,8 +115,8 @@
                                             <div class="col-xs-9 text-right">
                                                 <div class="huge">Juez</div>
                                             </div>
-                                        </div>    
-                                    </div> 
+                                        </div>
+                                    </div>
 
                                     <a href="Index/juez">
                                         <div class="panel-footer">
@@ -138,8 +140,8 @@
                                             <div class="col-xs-9 text-right">
                                                 <div class="huge">Periódicos</div>
                                             </div>
-                                        </div>    
-                                    </div> 
+                                        </div>
+                                    </div>
 
                                     <a href="Index/periodico">
                                         <div class="panel-footer">
@@ -163,10 +165,10 @@
                                             <div class="col-xs-9 text-right">
                                                 <div class="huge">Partidos</div>
                                             </div>
-                                        </div>    
-                                    </div> 
+                                        </div>
+                                    </div>
 
-                                    <a href="Index/partido">
+                                    <a href="Index/Antes_Partido">
                                         <div class="panel-footer">
                                             <span class="pull-left">Ver detalles</span>
                                             <span class="pull-right">
@@ -193,7 +195,7 @@
     <script src="<?= $url_path ?>index/js/bootstrap.min.js"></script>
 
 
-    <!-- angular 
+    <!-- angular
     <script src="< ?= $url_path ?>interno/js/angular/angular.min.js"></script>
     <script src="< ?= $url_path ?>interno/js/angular/angular-resource.js"></script>
     <script src="< ?= $url_path ?>interno/js/angular/angular-file-model.js"></script>
