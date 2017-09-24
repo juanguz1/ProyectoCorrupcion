@@ -109,7 +109,7 @@
 							<div class="form-group">
 								<label for="inputEmail3" class="col-sm-3 control-label">Fecha de comienzo <span style="color:red;">*</span></label>
 								<div class="col-sm-8">
-								<input type="text" class="form-control" id="FechaComienzo" name="FechaComienzo">
+								<input type="date" class="form-control" id="FechaComienzo" name="FechaComienzo">
 								<br>
 								</div>
 							</div>										
