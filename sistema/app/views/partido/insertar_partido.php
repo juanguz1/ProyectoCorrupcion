@@ -25,7 +25,7 @@
                         <p class="help-block">* Campo Obligatorio.</p>
 
                         <label>Número</label>
-                        <input name="NumeroPartido" id="NumeroPartido" class="form-control" required>
+                        <input type="number" min="1" name="NumeroPartido" id="NumeroPartido" class="form-control" required>
                         <p class="help-block">* Campo Obligatorio.</p>
 
                         <label>Colonia</label>
@@ -45,7 +45,7 @@
                         <p class="help-block">* Campo Obligatorio.</p>
 
                         <label>Numero telefonico</label>
-                        <input name="TelefonoPartido" id="TelefonoPartido" class="form-control" required>
+                        <input type="number" min="10000000" name="TelefonoPartido" id="TelefonoPartido" class="form-control" required>
                         <p class="help-block">* Campo Obligatorio.</p>
 
                         <?php

@@ -1,4 +1,4 @@
-<?php 
+<?php
 	include($_SERVER['DOCUMENT_ROOT']."/ProyectoCorrupcion/sistema/app/views/base_dashboard.php");
 ?>
 <?php startblock('title') ?>
@@ -27,22 +27,22 @@
 										<th style='text-align:center' width='10%'>Fecha Comienzo</th>
 										<th style="text-align:center">Acción</th>
 									</tr>
-									<?php 
+									<?php
 										if($data['jueces']){
 											while($jueces = $data['jueces']->fetch_assoc()){
-												
+
 													print "<tr style='background: white;'id='{$jueces['idJuez']}'>"; //fila normal
-		
+
 														print "<th> {$jueces['idJuez']}</th>";
 														print "<th> {$jueces['Nombre']}</th>";
 														print "<th> {$jueces['ApellidoPaterno']}</th>";
 														print "<th> {$jueces['ApellidoMaterno']}</th>";
 														print "<th> {$jueces['FechaComienzo']}</th>";
-														
+
 														print "<td style='text-align: center;'>";
-															print "<button type='button' class='btn btn-outline btn-info Update' style='margin:auto;' data-toggle='modal' data-target='#ActualizarModal' data-idjuez={$jueces['idJuez']} id='{$jueces['idJuez']}b'><i class='fa fa-refresh'></i></button>"; 
+															print "<button type='button' class='btn btn-outline btn-info Update' style='margin:auto;' data-toggle='modal' data-target='#ActualizarModal' data-idjuez={$jueces['idJuez']} id='{$jueces['idJuez']}b'><i class='fa fa-refresh'></i></button>";
 															print "<button type='button' class='btn btn-outline btn-danger Delete' style='margin:auto;' data-idjuez={$jueces['idJuez']} id='{$jueces['idJuez']}b'><i class='fa fa-times'></i></button>";
-														print "</td>";    
+														print "</td>";
 													print "</tr>";
 											}
 										}
@@ -112,7 +112,7 @@
 								<input type="date" class="form-control" id="FechaComienzo" name="FechaComienzo">
 								<br>
 								</div>
-							</div>										
+							</div>
 						</div>
 						<div class="modal-footer">
 							<button type="submit" class="btn btn-default" id="actualizacion">Actualizar</button>
@@ -147,19 +147,19 @@
 				$('#FechaComienzo').val(juez.FechaComienzo);
 			}
 			});
-		});	
+		});
 		$('#actualizarForm').submit(function(e){
 			var url = "/ProyectoCorrupcion/sistema/public/Index/actualizaJuez";
 			$.ajax({
 			type:"POST",
 			url: url,
-			data: $("#actualizarForm").serialize(), 
+			data: $("#actualizarForm").serialize(),
 			success: function(data){
 				if (data=='Actualizado'){
 					alertify.success("Se ha actualizado el juez exitosamente");
 				}else {
 					alertify.error('No se realizó ningún cambio, intente más tarde.');
-					
+
 				}
 				sleep(1700).then(()=>{
 					location.reload();
@@ -176,7 +176,7 @@
 				//alert("¡Gracias por aceptar!");
 				$.ajax({
 				type:"GET",
-				url: url, 
+				url: url,
 				success: function(data){
 					if (data=='Borrado'){
 						alertify.success("Se ha eliminado el juez exitosamente");
@@ -193,12 +193,7 @@
 	function sleep (time) {
 		return new Promise((resolve) => setTimeout(resolve, time));
 	}
-
 });
-
-
-
-
 </script>
 <?php endblock() ?>
 
@@ -216,7 +211,7 @@
 			}else{
 				$scope.checkNoEmpleado = false;
 			}
-		};		
+		};
 		$scope.valida_nombre = function(){
 			console.log($scope.nombre);
 			console.log(letras.test($scope.nombre));
@@ -254,7 +249,7 @@
 				$scope.checkCorreo = false;
 			}
 		};
-	});	
+	});
 </script>
 
 <?php endblock() ?>

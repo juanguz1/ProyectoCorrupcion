@@ -57,7 +57,7 @@
                         <p class="help-block">* Campo Obligatorio.</p>
 
                         <label>Número</label>
-                        <input name="Numero" id="Numero" class="form-control" required>
+                        <input type="number" min="1" name="Numero" id="Numero" class="form-control" required>
                         <p class="help-block">* Campo Obligatorio.</p>
 
                         <label>Colonia</label>

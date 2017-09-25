@@ -1,4 +1,4 @@
-<?php 
+<?php
 	include($_SERVER['DOCUMENT_ROOT']."/ProyectoCorrupcion/sistema/app/views/base_dashboard.php");
 ?>
 <?php startblock('title') ?>
@@ -29,12 +29,12 @@
 										<th style='text-align:center'>Dirección</th>
 										<th style="text-align:center">Acción</th>
 									</tr>
-									<?php 
+									<?php
 										if($data['ciudadanos']){
 											while($ciudadanos = $data['ciudadanos']->fetch_assoc()){
-												
+
 													print "<tr style='background: white;'id='{$ciudadanos['idCiudadano']}'>"; //fila normal
-		
+
 														print "<th> {$ciudadanos['idCiudadano']}</th>";
 														print "<th> {$ciudadanos['Nombre']}</th>";
 														print "<th> {$ciudadanos['ApellidoPaterno']}</th>";
@@ -42,12 +42,12 @@
 														print "<th> {$ciudadanos['FechaNacimiento']}</th>";
 														print "<th> {$ciudadanos['Patrimonio']}</th>";
 														print "<th>";
-															print "<button type='button' class='btn btn-outline btn-info VerDireccion' style='margin:auto;' data-toggle='modal' data-target='#verDireccion' data-idciudadano={$ciudadanos['idCiudadano']} id='{$ciudadanos['idCiudadano']}b'>Ver más</button>"; 
+															print "<button type='button' class='btn btn-outline btn-info VerDireccion' style='margin:auto;' data-toggle='modal' data-target='#verDireccion' data-idciudadano={$ciudadanos['idCiudadano']} id='{$ciudadanos['idCiudadano']}b'>Ver más</button>";
 														print "</th>";
 														print "<td style='text-align: center;'>";
-															print "<button type='button' class='btn btn-outline btn-info Update' style='margin:auto;' data-toggle='modal' data-target='#ActualizarModal' data-idciudadano={$ciudadanos['idCiudadano']} id='{$ciudadanos['idCiudadano']}b'><i class='fa fa-refresh'></i></button>"; 
+															print "<button type='button' class='btn btn-outline btn-info Update' style='margin:auto;' data-toggle='modal' data-target='#ActualizarModal' data-idciudadano={$ciudadanos['idCiudadano']} id='{$ciudadanos['idCiudadano']}b'><i class='fa fa-refresh'></i></button>";
 															print "<button type='button' class='btn btn-outline btn-danger Delete' style='margin:auto;' data-idciudadano={$ciudadanos['idCiudadano']} id='{$ciudadanos['idCiudadano']}b'><i class='fa fa-times'></i></button>";
-														print "</td>";    
+														print "</td>";
 													print "</tr>";
 											}
 										}
@@ -61,7 +61,7 @@
 					</div>
 				</div>
             </div>
-			
+
 			<!--VER DIRECCIÓN-->
 			<div id="verDireccion" class="modal fade" role="dialog">
 			<div class="modal-dialog" style="width:650px;">
@@ -129,7 +129,7 @@
 								<input type="hidden" name="Pais" id="hiddenPais">
 								<br>
 								</div>
-							</div>					
+							</div>
 						</div>
 						<!--<div class="modal-footer">
 							<button type="submit" class="btn btn-default" id="direccionAcep">Aceptar</button>
@@ -138,8 +138,8 @@
 					</div>
 				</div>
 			</div>
-			
-			
+
+
 			<!-- ACTUALIZAR CUENTA -->
 			<div id="ActualizarModal" class="modal fade" role="dialog">
 				<div class="modal-dialog" style="width:650px;">
@@ -279,8 +279,8 @@
 				$('#hiddenPais').val(direccion.Pais);
 			}
 			});
-		});	
-		
+		});
+
 		$('.Update').on('click',function(){
 			console.log(String($(this).data('idciudadano')));
 			var url = "/ProyectoCorrupcion/sistema/public/Index/actualizar_Ciudadano/"+$(this).data('idciudadano');
@@ -305,19 +305,19 @@
 				$('#Pais1').val(ciudadano.Pais);
 			}
 			});
-		});	
+		});
 		$('#actualizarForm').submit(function(e){
 			var url = "/ProyectoCorrupcion/sistema/public/Index/actualizaCiudadano";
 			$.ajax({
 			type:"POST",
 			url: url,
-			data: $("#actualizarForm").serialize(), 
+			data: $("#actualizarForm").serialize(),
 			success: function(data){
 				if (data=='Actualizado'){
 					alertify.success("Se ha actualizado el ciudadano exitosamente");
 				}else {
 					alertify.error('No se realizó ningún cambio, intente más tarde.');
-					
+
 				}
 				sleep(1700).then(()=>{
 					location.reload();
@@ -334,7 +334,7 @@
 				//alert("¡Gracias por aceptar!");
 				$.ajax({
 				type:"GET",
-				url: url, 
+				url: url,
 				success: function(data){
 					if (data=='Borrado'){
 						alertify.success("Se ha eliminado el ciudadano exitosamente");
@@ -351,12 +351,7 @@
 	function sleep (time) {
 		return new Promise((resolve) => setTimeout(resolve, time));
 	}
-
 });
-
-
-
-
 </script>
 <?php endblock() ?>
 
@@ -374,7 +369,7 @@
 			}else{
 				$scope.checkNoEmpleado = false;
 			}
-		};		
+		};
 		$scope.valida_nombre = function(){
 			console.log($scope.nombre);
 			console.log(letras.test($scope.nombre));
@@ -412,7 +407,7 @@
 				$scope.checkCorreo = false;
 			}
 		};
-	});	
+	});
 </script>
 
 <?php endblock() ?>

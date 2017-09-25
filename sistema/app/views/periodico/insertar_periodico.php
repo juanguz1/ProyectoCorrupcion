@@ -20,7 +20,7 @@
                             <p class="help-block">* Campo Obligatorio.</p>
 
 							<label>Tiraje</label>
-                            <input name="Tiraje" id="Tiraje" class="form-control" required>
+                            <input type="number" min="1" name="Tiraje" id="Tiraje" class="form-control" required>
                             <p class="help-block">* Campo Obligatorio.</p>
 
 							<h1>Dirección</h1>
@@ -30,7 +30,7 @@
                                 <p class="help-block">* Campo Obligatorio.</p>
 
                                 <label>Número</label>
-                                <input name="NumeroPeriodico" id="NumeroPeriodico" class="form-control" required>
+                                <input  type="number" min="1"  name="NumeroPeriodico" id="NumeroPeriodico" class="form-control" required>
                                 <p class="help-block">* Campo Obligatorio.</p>
 
                                 <label>Colonia</label>
