@@ -86,49 +86,49 @@
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Teléfono</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="TelefonoPartido" name="TelefonoPartido">
+										<input type="number" class="form-control" id="TelefonoPartido" name="TelefonoPartido" required>
 										<br>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Calle <span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="Calle1" name="Calle1">
+										<input type="text" class="form-control" id="Calle1" name="Calle1" required>
 										<br>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Número <span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="Numero1" name="Numero1">
+										<input type="number" class="form-control" id="Numero1" name="Numero1" required>
 										<br>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Colonia <span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="Colonia1" name="Colonia1">
+										<input type="text" class="form-control" id="Colonia1" name="Colonia1" required>
 										<br>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Municipio <span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="Municipio1" name="Municipio1">
+										<input type="text" class="form-control" id="Municipio1" name="Municipio1" required>
 										<br>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Estado<span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="Estado1" name="Estado1">
+										<input type="text" class="form-control" id="Estado1" name="Estado1" required>
 										<br>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">País <span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="Pais1" name="Pais1">
+										<input type="text" class="form-control" id="Pais1" name="Pais1" required>
 										<br>
 									</div>
 								</div>

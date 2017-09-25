@@ -127,49 +127,49 @@
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Nombre del caso<span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="Nombre1" name="Nombre1">
+										<input type="text" class="form-control" id="Nombre1" name="Nombre1" required>
 										<br>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Descripción <span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<textarea rows="3" cols="54" id="Descripcion1" name="Descripcion1"></textarea>
+										<textarea rows="3" cols="54" id="Descripcion1" name="Descripcion1" required></textarea>
 										<br>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Desvío</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="Desvio" name="Desvio" ng-keypress="valida_apMat()" ng-model="apMaterno">
+										<input type="text" class="form-control" id="Desvio" name="Desvio" ng-keypress="valida_apMat()" ng-model="apMaterno" required>
 										<br>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">País de origen<span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="PaisOrigen" name="PaisOrigen">
+										<input type="text" class="form-control" id="PaisOrigen" name="PaisOrigen" required>
 										<br>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">idPeriodico <span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="idPeriodico" name="idPeriodico">
+										<input type="text" class="form-control" id="idPeriodico" name="idPeriodico" required>
 										<br>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">FechaDescubrimiento <span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="FechaDescubrimiento" name="FechaDescubrimiento">
+										<input type="date" class="form-control" id="FechaDescubrimiento" name="FechaDescubrimiento" required>
 										<br>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Dictamen <span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="Dictamen" name="Dictamen">
+										<input type="text" class="form-control" id="Dictamen" name="Dictamen" required>
 										<br>
 									</div>
 								</div>

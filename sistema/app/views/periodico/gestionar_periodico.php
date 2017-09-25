@@ -2,7 +2,7 @@
 	include($_SERVER['DOCUMENT_ROOT']."/ProyectoCorrupcion/sistema/app/views/base_dashboard.php");
 ?>
 <?php startblock('title') ?>
-    Gestionar periodicos
+    Gestionar periódicos
 <?php endblock() ?>
 <!--<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -88,49 +88,49 @@
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Tiraje <span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="Tiraje" name="Tiraje">
+										<input type="text" class="form-control" id="Tiraje" name="Tiraje" placeholder="Ingrese tiraje" required>
 										<br>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Calle<span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="CallePeriodico" name="CallePeriodico" placeholder="Ingrese la calle" ng-keypress="valida_apPat()" ng-model="apPaterno">
+										<input type="text" class="form-control" id="CallePeriodico" name="CallePeriodico" placeholder="Ingrese la calle" ng-keypress="valida_apPat()" ng-model="apPaterno" required>
 										<br>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Número<span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="NumeroPeriodico" name="NumeroPeriodico" placeholder="Ingrese el número" ng-keypress="valida_apMat()" ng-model="apMaterno">
+										<input type="number" class="form-control" id="NumeroPeriodico" name="NumeroPeriodico" placeholder="Ingrese el número" ng-keypress="valida_apMat()" ng-model="apMaterno" required>
 										<br>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Colonia<span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="ColoniaPeriodico" name="ColoniaPeriodico">
+										<input type="text" class="form-control" id="ColoniaPeriodico" name="ColoniaPeriodico" placeholder="Ingrese la colonia" required>
 										<br>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Municipio<span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="MunicipioPeriodico" name="MunicipioPeriodico">
+										<input type="text" class="form-control" id="MunicipioPeriodico" name="MunicipioPeriodico" placeholder="Ingrese municipio" required>
 										<br>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Estado<span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="EstadoPeriodico" name="EstadoPeriodico">
+										<input type="text" class="form-control" id="EstadoPeriodico" name="EstadoPeriodico" placeholder="Ingrese estado" required>
 										<br>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">País <span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="PaisPeriodico" name="PaisPeriodico">
+										<input type="text" class="form-control" id="PaisPeriodico" name="PaisPeriodico" placeholder="Ingrese pais" required>
 										<br>
 									</div>
 								</div>
