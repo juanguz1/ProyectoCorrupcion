@@ -1,4 +1,4 @@
-<?php
+<?php 
 	include($_SERVER['DOCUMENT_ROOT']."/ProyectoCorrupcion/sistema/app/views/base_dashboard.php");
 ?>
 <?php startblock('title') ?>
@@ -28,12 +28,12 @@
 										<th style='text-align:center'>Pais</th>
 										<th style="text-align:center">Acción</th>
 									</tr>
-									<?php
+									<?php 
 										if($data['partidos']){
 											while($partidos = $data['partidos']->fetch_assoc()){
-
+												
 													print "<tr style='background: white;'id='{$partidos['NombrePartido']}'>"; //fila normal
-
+		
 														print "<th> {$partidos['NombrePartido']}</th>";
 														print "<th> {$partidos['TelefonoPartido']}</th>";
 														print "<th> {$partidos['CallePartido']}</th>";
@@ -43,9 +43,9 @@
 														print "<th> {$partidos['EstadoPartido']}</th>";
 														print "<th> {$partidos['PaisPartido']}</th>";
 														print "<td style='text-align: center;'>";
-															print "<button type='button' class='btn btn-outline btn-info Update' style='margin:auto;' data-toggle='modal' data-target='#ActualizarModal' data-nombrepartido={$partidos['NombrePartido']} id='{$partidos['NombrePartido']}b'><i class='fa fa-refresh'></i></button>";
+															print "<button type='button' class='btn btn-outline btn-info Update' style='margin:auto;' data-toggle='modal' data-target='#ActualizarModal' data-nombrepartido={$partidos['NombrePartido']} id='{$partidos['NombrePartido']}b'><i class='fa fa-refresh'></i></button>"; 
 															print "<button type='button' class='btn btn-outline btn-danger Delete' style='margin:auto;' data-nombrepartido={$partidos['NombrePartido']} id='{$partidos['NombrePartido']}b'><i class='fa fa-times'></i></button>";
-														print "</td>";
+														print "</td>";    
 													print "</tr>";
 											}
 										}
@@ -59,7 +59,7 @@
 					</div>
 				</div>
             </div>
-
+			
 			<!-- ACTUALIZAR CUENTA -->
 			<div id="ActualizarModal" class="modal fade" role="dialog">
 				<div class="modal-dialog" style="width:650px;">
@@ -86,7 +86,7 @@
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Teléfono</label>
 									<div class="col-sm-8">
-										<input type="number" class="form-control" id="TelefonoPartido" name="TelefonoPartido" required>
+										<input type="number" min="10000000001" class="form-control" id="TelefonoPartido" name="TelefonoPartido" required>
 										<br>
 									</div>
 								</div>
@@ -100,7 +100,7 @@
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Número <span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="number" class="form-control" id="Numero1" name="Numero1" required>
+										<input type="number" min="1" class="form-control" id="Numero1" name="Numero1" required>
 										<br>
 									</div>
 								</div>
@@ -166,19 +166,19 @@
 				$('#Pais1').val(partido.PaisPartido);
 			}
 			});
-		});
+		});	
 		$('#actualizarForm').submit(function(e){
 			var url = "/ProyectoCorrupcion/sistema/public/Index/actualizaPartido";
 			$.ajax({
 			type:"POST",
 			url: url,
-			data: $("#actualizarForm").serialize(),
+			data: $("#actualizarForm").serialize(), 
 			success: function(data){
 				if (data=='Actualizado'){
 					alertify.success("Se ha actualizado el partido exitosamente");
 				}else {
 					alertify.error('No se realizó ningún cambio, intente más tarde.');
-
+					
 				}
 				sleep(1700).then(()=>{
 					location.reload();
@@ -193,7 +193,7 @@
 			if (mensaje) {
 				$.ajax({
 				type:"GET",
-				url: url,
+				url: url, 
 				success: function(data){
 					if (data=='Borrado'){
 						alertify.success("Se ha eliminado el partido exitosamente");
@@ -210,7 +210,12 @@
 	function sleep (time) {
 		return new Promise((resolve) => setTimeout(resolve, time));
 	}
+
 });
+
+
+
+
 </script>
 <?php endblock() ?>
 
@@ -228,7 +233,7 @@
 			}else{
 				$scope.checkNoEmpleado = false;
 			}
-		};
+		};		
 		$scope.valida_nombre = function(){
 			console.log($scope.nombre);
 			console.log(letras.test($scope.nombre));
@@ -266,7 +271,7 @@
 				$scope.checkCorreo = false;
 			}
 		};
-	});
+	});	
 </script>
 
 <?php endblock() ?>
