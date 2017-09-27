@@ -5,13 +5,13 @@
   <?php endblock() ?>
 
  <?php startblock('main') ?>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            Introducir los siguientes datos
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			Introducir los siguientes datos
         </div>
 
-        <div class="panel-body">
-            <div class="row">
+		<div class="panel-body">
+			<div class="row">
                 <div class="col-lg-6">
                     <form role="form" action="Agregar_Periodico" method="post">
                         <div class="form-group">
@@ -19,18 +19,18 @@
                             <input name="NombrePeriodico" id="NombrePeriodico" class="form-control" required>
                             <p class="help-block">* Campo Obligatorio.</p>
 
-                            <label>Tiraje</label>
+							<label>Tiraje</label>
                             <input type="number" min="1" name="Tiraje" id="Tiraje" class="form-control" required>
                             <p class="help-block">* Campo Obligatorio.</p>
 
-                            <h1>Dirección</h1>
+							<h1>Dirección</h1>
 
                                 <label>Calle</label>
                                 <input name="CallePeriodico" id="CallePeriodico" class="form-control" required>
                                 <p class="help-block">* Campo Obligatorio.</p>
 
                                 <label>Número</label>
-                                <input type="number" min="1" name="NumeroPeriodico" id="NumeroPeriodico" class="form-control" required>
+                                <input  type="number" min="1"  name="NumeroPeriodico" id="NumeroPeriodico" class="form-control" required>
                                 <p class="help-block">* Campo Obligatorio.</p>
 
                                 <label>Colonia</label>
@@ -50,10 +50,10 @@
                                 <p class="help-block">* Campo Obligatorio.</p>
 
 
-                                <input type="submit" value="Guardar" class="form-control" name="GuardaPeriodico" />
-                            </form>
-                        </div>
-                    </form>
+								<input type="submit" value="Guardar" class="form-control" name="GuardaPeriodico" />
+							</form>
+						</div>
+					</form>
                 </div>
             </div>
         </div>

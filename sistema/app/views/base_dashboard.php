@@ -72,7 +72,9 @@
                             <li>
                                 <a href="Antes_Caso">Añadir caso</a>
                             </li>
-
+                            <li>
+                                  <a href="busca_implicados">Ver implicados</a>
+                            </li>
 
                             <li>
                                   <a href="imputado">Agregar imputados</a>

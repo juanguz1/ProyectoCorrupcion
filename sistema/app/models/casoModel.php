@@ -79,5 +79,11 @@ class casoModel
 
             }
 
+  function listar_implicado($idCaso){
+      $query="SELECT concat(ciudadano.Nombre,' ',ciudadano.ApellidoPaterno,' ', ciudadano.ApellidoMaterno) AS NombreCompleto,ciudadano.Pais, ciudadano.Patrimonio FROM Ciudadano INNER JOIN casociudadano ON ciudadano.idCiudadano=casociudadano.idCiudadano WHERE casociudadano.idCaso='$idCaso'";
+      $implicados= $this->connection->query($query);
+      return $implicados ? $implicados:array();
+  }
+
 
 }

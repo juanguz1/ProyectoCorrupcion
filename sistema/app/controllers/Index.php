@@ -18,6 +18,11 @@ class Index extends Controller
 	   $this->view('caso/insertar_caso');
   }
 
+  function busca_implicados(){
+    $this->view('caso/buscar_implicados');
+
+  }
+
   function imputado(){
      $ciudadanos = $this->modelo_ciudadano->consulta_ciudadano();
      $casos=$this->modelo_caso->consulta_casos();
@@ -54,9 +59,17 @@ class Index extends Controller
     $postdata=file_get_contents("php://input");
     $request=json_decode($postdata);
     $EE_modelo=$this->model('casoModel');
-    $EE_modelo->registra_caso($_POST["idCaso"],$_POST["NombreCaso"],$_POST["Descripcion"],$_POST["Desvio"],$_POST["PaisOrigen"],$_POST["idPeriodico"],$_POST["FechaDescubrimiento"],$_POST["Dictamen"]);
+    if(isset($_POST['dictamen'])&&($_POST['dictamen']==1)){
+      $dictamen=1;
+
+    }else{
+      $dictamen=0;
+    }
+    $EE_modelo->registra_caso($_POST["idCaso"],$_POST["NombreCaso"],$_POST["Descripcion"],$_POST["Desvio"],$_POST["PaisOrigen"],$_POST["idPeriodico"],$_POST["FechaDescubrimiento"],$dictamen);
 
     $this->view('caso/insertar_caso', ['periodicos'=>$periodicos]);
+
+
   }
 
   public function Agregar_inputado(){
@@ -93,6 +106,15 @@ class Index extends Controller
   public function borraCaso($idCaso){
     $resul = $this->modelo_caso->delete_caso($idCaso);
     return $resul;
+  }
+
+  public function buscar_implicados(){
+    $postdata=file_get_contents("php://input");
+    $request=json_decode($postdata);
+    $EE_modelo=$this->model('casoModel');
+    $implicados=$EE_modelo->listar_implicado($_POST["idCaso"]);
+      $this->view('caso/mostrar_implicados',['implicados'=>$implicados]);
+
   }
 
   //////////////////////////////////////////////////////////////////////////////////////////

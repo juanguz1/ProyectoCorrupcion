@@ -1,4 +1,4 @@
-<?php 
+<?php
 	include($_SERVER['DOCUMENT_ROOT']."/ProyectoCorrupcion/sistema/app/views/base_dashboard.php");
 ?>
 <?php startblock('title') ?>
@@ -30,12 +30,12 @@
 										<th style='text-align:center'>País</th>
 										<th style="text-align:center">Acción</th>
 									</tr>
-									<?php 
+									<?php
 										if($data['periodicos']){
 											while($periodicos = $data['periodicos']->fetch_assoc()){
-												
+
 													print "<tr style='background: white;'id='{$periodicos['NombrePeriodico']}'>"; //fila normal
-		
+
 														print "<th> {$periodicos['NombrePeriodico']}</th>";
 														print "<th> {$periodicos['Tiraje']}</th>";
 														print "<th> {$periodicos['CallePeriodico']}</th>";
@@ -45,9 +45,9 @@
 														print "<th> {$periodicos['EstadoPeriodico']}</th>";
 														print "<th> {$periodicos['PaisPeriodico']}</th>";
 														print "<td style='text-align: center;'>";
-															print "<button type='button' class='btn btn-outline btn-info Update' style='margin:auto;' data-toggle='modal' data-target='#ActualizarModal' data-nombreperiodico={$periodicos['NombrePeriodico']} id='{$periodicos['NombrePeriodico']}b'><i class='fa fa-refresh'></i></button>"; 
+															print "<button type='button' class='btn btn-outline btn-info Update' style='margin:auto;' data-toggle='modal' data-target='#ActualizarModal' data-nombreperiodico={$periodicos['NombrePeriodico']} id='{$periodicos['NombrePeriodico']}b'><i class='fa fa-refresh'></i></button>";
 															print "<button type='button' class='btn btn-outline btn-danger Delete' style='margin:auto;' data-nombreperiodico={$periodicos['NombrePeriodico']} id='{$periodicos['NombrePeriodico']}b'><i class='fa fa-times'></i></button>";
-														print "</td>";    
+														print "</td>";
 													print "</tr>";
 											}
 										}
@@ -61,7 +61,7 @@
 					</div>
 				</div>
             </div>
-			
+
 			<!-- ACTUALIZAR CUENTA -->
 			<div id="ActualizarModal" class="modal fade" role="dialog">
 				<div class="modal-dialog" style="width:650px;">
@@ -88,7 +88,7 @@
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Tiraje <span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="number" min="1" class="form-control" id="Tiraje" name="Tiraje" placeholder="Ingrese tiraje" required>
+										<input type="text" class="form-control" id="Tiraje" name="Tiraje" placeholder="Ingrese tiraje" required>
 										<br>
 									</div>
 								</div>
@@ -102,7 +102,7 @@
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Número<span style="color:red;">*</span></label>
 									<div class="col-sm-8">
-										<input type="number" min="1" class="form-control" id="NumeroPeriodico" name="NumeroPeriodico" placeholder="Ingrese el número" ng-keypress="valida_apMat()" ng-model="apMaterno" required>
+										<input type="number" class="form-control" id="NumeroPeriodico" name="NumeroPeriodico" placeholder="Ingrese el número" ng-keypress="valida_apMat()" ng-model="apMaterno" required>
 										<br>
 									</div>
 								</div>
@@ -147,7 +147,7 @@
 </div>
 	<script src="<?= $url_path?>Interno/js/jquery-3.1.1.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
-	$(document).ready(function () {	
+	$(document).ready(function () {
 		$('.Update').on('click',function(){
 			console.log(String($(this).data('nombreperiodico')));
 			var url = "/ProyectoCorrupcion/sistema/public/Index/actualizar_Periodico/"+$(this).data('nombreperiodico');
@@ -168,19 +168,19 @@
 				$('#PaisPeriodico').val(periodico.PaisPeriodico);
 			}
 			});
-		});	
+		});
 		$('#actualizarForm').submit(function(e){
 			var url = "/ProyectoCorrupcion/sistema/public/Index/actualizaPeriodico";
 			$.ajax({
 			type:"POST",
 			url: url,
-			data: $("#actualizarForm").serialize(), 
+			data: $("#actualizarForm").serialize(),
 			success: function(data){
 				if (data=='Actualizado'){
 					alertify.success("Se ha actualizado el periodico exitosamente");
 				}else {
 					alertify.error('No se realizó ningún cambio, intente más tarde.');
-					
+
 				}
 				sleep(1700).then(()=>{
 					location.reload();
@@ -195,7 +195,7 @@
 			if (mensaje) {
 				$.ajax({
 				type:"GET",
-				url: url, 
+				url: url,
 				success: function(data){
 					if (data=='Borrado'){
 						alertify.success("Se ha eliminado el ciudadano exitosamente");
@@ -212,12 +212,7 @@
 	function sleep (time) {
 		return new Promise((resolve) => setTimeout(resolve, time));
 	}
-
 });
-
-
-
-
 </script>
 <?php endblock() ?>
 
@@ -235,7 +230,7 @@
 			}else{
 				$scope.checkNoEmpleado = false;
 			}
-		};		
+		};
 		$scope.valida_nombre = function(){
 			console.log($scope.nombre);
 			console.log(letras.test($scope.nombre));
@@ -273,7 +268,7 @@
 				$scope.checkCorreo = false;
 			}
 		};
-	});	
+	});
 </script>
 
 <?php endblock() ?>

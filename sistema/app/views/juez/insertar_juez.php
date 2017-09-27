@@ -9,7 +9,7 @@
 		<div class="panel-heading">
 			Introducir los siguientes datos
         </div>
-        
+
 		<div class="panel-body">
 			<div class="row">
                 <div class="col-lg-8">
@@ -23,7 +23,7 @@
 								<?php
 									print "<div class='col-sm-6'>";
 										print "<select class='form-control' name='ciudadano'>";
-										while($ciudadano = $data['ciudadanos']->fetch_assoc()){	
+										while($ciudadano = $data['ciudadanos']->fetch_assoc()){
 											print "<option value={$ciudadano['idCiudadano']}>{$ciudadano['NombreCompleto']}</option>";
 										}
 										print "</select>";
@@ -48,8 +48,8 @@
                 </div>
             </div>
         </div>
-    </div>	
-	
+    </div>
+
 	<script src="<?= $url_path?>Interno/js/jquery-3.1.1.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		function enviaFormDatos(){
@@ -64,7 +64,7 @@
 						alertify.success("Se ha registrado el juez exitosamente");
 					}else {
 						alertify.error('No se realizó ningún cambio, intente más tarde.');
-						
+
 					}
 					sleep(1700).then(()=>{
 						location.reload();
@@ -73,16 +73,16 @@
 			});
 			return false;
 		}
-		
-		
+
+
 		function verifica(){
 			var fein = $('input[id=FechaComienzo]').val();
 			if (fein.length <1)
 				alertify.error('Falta fecha de comienzo.');
-			else 
+			else
 				enviaFormDatos();
 		}
-	
+
 	$(document).ready(function () {
 		/*$('#registro').submit(function(e){
 			var url = "/ProyectoCorrupcion/sistema/public/Index/registrar_cuentaJuez";
@@ -97,7 +97,7 @@
 					alertify.success("Se ha registrado el juez exitosamente");
 				}else {
 					alertify.error('No se realizó ningún cambio, intente más tarde.');
-					
+
 				}
 				sleep(1700).then(()=>{
 					location.reload();

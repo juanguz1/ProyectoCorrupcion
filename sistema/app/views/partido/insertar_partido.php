@@ -5,19 +5,19 @@
   <?php endblock() ?>
 
  <?php startblock('main') ?>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            Introducir los siguientes datos
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			Introducir los siguientes datos
         </div>
 
-        <div class="panel-body">
-            <div class="row">
+		<div class="panel-body">
+			<div class="row">
                 <div class="col-lg-6">
                     <form role="form" action="Agregar_partido" method="post">
                         <div class="form-group">
                             <label>Nombre Partido</label>
                             <input name="NombrePartido" id="NombrePartido" class="form-control" required>
-                                           <p class="help-block">* Campo Obligatorio.</p>
+							               <p class="help-block">* Campo Obligatorio.</p>
 
                         <h1>Dirección</h1>
                         <label>Calle</label>
@@ -45,7 +45,7 @@
                         <p class="help-block">* Campo Obligatorio.</p>
 
                         <label>Numero telefonico</label>
-                        <input type="number" min="1" name="TelefonoPartido" id="TelefonoPartido" class="form-control" required>
+                        <input type="number" min="10000000" name="TelefonoPartido" id="TelefonoPartido" class="form-control" required>
                         <p class="help-block">* Campo Obligatorio.</p>
 
                         <?php

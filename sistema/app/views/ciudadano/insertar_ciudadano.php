@@ -4,25 +4,30 @@
      Añadir nuevo ciudadano
   <?php endblock() ?>
 
+
+
+
+
+
  <?php startblock('main') ?>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            Introducir los siguientes datos
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			Introducir los siguientes datos
         </div>
 
-        <div class="panel-body">
-            <div class="row">
+		<div class="panel-body">
+			<div class="row">
                 <div class="col-lg-6">
                     <form role="form" action="Agregar_Ciudadano" method="post">
                         <div class="form-group">
                           <label>Clave ciudadano</label>
                           <input name="idCiudadano" id="idCiudadano" class="form-control" required>
-                            <p class="help-block">* Campo Obligatorio.</p>
+            <p class="help-block">* Campo Obligatorio.</p>
 
 
                             <label>Nombre</label>
                             <input name="Nombre" id="Nombre" class="form-control" required>
-                                          <p class="help-block">* Campo Obligatorio.</p>
+							              <p class="help-block">* Campo Obligatorio.</p>
 
                             <label>Apellido Paterno</label>
                             <input name="ApellidoPaterno" id="ApellidoPaterno"class="form-control" required>
@@ -36,13 +41,13 @@
                             <input type="date" name="FechaNacimiento" id="FechaNacimiento" class="form-control" required>
                             <p class="help-block">* Campo Obligatorio.</p>
 
-                                        <label>Patrimonio</label>
-                                            <div class="form-group input-group">
-                                                <span class="input-group-addon">$</span>
-                                                    <input name="Patrimonio" id="Patrimonio" type="number" min="1" class="form-control" required>
-                                                <span class="input-group-addon">.00</span>
-                                            </div>
-                                            <p class="help-block">* Campo Obligatorio.</p>
+                						<label>Patrimonio</label>
+                							<div class="form-group input-group">
+                								<span class="input-group-addon">$</span>
+                									<input name="Patrimonio" id="Patrimonio" type="text" class="form-control" required>
+                								<span class="input-group-addon">.00</span>
+                							</div>
+                							<p class="help-block">* Campo Obligatorio.</p>
 
 
                         <h1>Direccion</h1>
@@ -52,7 +57,7 @@
                         <p class="help-block">* Campo Obligatorio.</p>
 
                         <label>Número</label>
-                        <input name="Numero" id="Numero" class="form-control" type="number" min="1" required>
+                        <input type="number" min="1" name="Numero" id="Numero" class="form-control" required>
                         <p class="help-block">* Campo Obligatorio.</p>
 
                         <label>Colonia</label>
@@ -67,7 +72,7 @@
                         <input name="Estado" id="Estado" class="form-control" required>
                         <p class="help-block">* Campo Obligatorio.</p>
 
-                        <label>País</label>
+                        <label>Pais</label>
                         <input name="Pais" id="Pais" class="form-control" required>
                         <p class="help-block">* Campo Obligatorio.</p>
 
