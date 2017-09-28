@@ -22,7 +22,6 @@
 				url: url, 
 				data: { idCiudadano: idCiudadano, idCaso: idCaso},
 				success: function(data){
-					alert (data);
 					if (data=='Borrado'){
 						alertify.success("Se ha eliminado el ciudadano del caso exitosamente");
 					}else {
