@@ -22,35 +22,37 @@
 						<div class="table-responsive">
 
 					<?php
-          //$jueces = $data['jueces']->fetch_assoc()
-          //print "<h1 class="section-heading">{$jueces['NombreCompleto']}</h1>";
-						if ($data['casos']){
-
-              print "<table class='table'>
-              <thead  style='color:white;background: #288CCC'>
-                <tr>
-                  <th style='text-align:center'>Nombre del Caso</th>
-                  <th style='text-align:center'>País</th>
-                  <th style='text-align:center'>Descubierto</th>
-                </tr>
-              </thead>
-              <tbody>";
-							//$con=0;
-							while($casos = $data['casos']->fetch_assoc()){
-								//$con++;
-
-
-
-								print "<tr>";
-								print "<th> {$casos['NombreCaso']}</th>";
-								print "<th> {$casos['PaisOrigen']}</th>";
-								print "<th> {$casos['FechaDescubrimiento']}</th>";
-								print "</tr>";
-              }
-              print "</tbody></table>";
+						while($jueces = $data['jueces']->fetch_assoc()){
+							print "<h2 class='section-heading'>{$jueces['NombreCompleto']}</h2>";
 						}
-						else{
-							print "<h3 style='text-align:center; color:red'>No hay casos almacenados</h3>";
+						if ($data['casos']){
+							$con=0;
+							while($casos = $data['casos']->fetch_assoc()){
+								$con++;
+								if($con==1){
+								  print "<table class='table'>
+								  <thead  style='color:white;background: #288CCC'>
+									<tr>
+									  <th style='text-align:center'>Nombre del Caso</th>
+									  <th style='text-align:center'>País</th>
+									  <th style='text-align:center'>Descubierto</th>
+									</tr>
+								  </thead>
+								  <tbody>";
+								}
+							//$con=0;
+							//while($casos = $data['casos']->fetch_assoc()){
+								//$con++;
+								print "<tr>";
+								print "<th style='text-align:center'> {$casos['NombreCaso']}</th>";
+								print "<th style='text-align:center'> {$casos['PaisOrigen']}</th>";
+								print "<th style='text-align:center'> {$casos['FechaDescubrimiento']}</th>";
+								print "</tr>";
+							}
+							print "</tbody></table>";
+						}
+						if($con==0){
+							print "<h3 style='text-align:center; color:red'>No hay casos asiganados a ese identificador de juez</h3>";
 						}
 					?>
 					</div>

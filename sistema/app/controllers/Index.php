@@ -230,9 +230,9 @@ class Index extends Controller
     $request=json_decode($postdata);
     $EE_modelo=$this->model('juezModel');
     $EE_modelo->juez_caso($_POST["idCaso"],$_POST["idJuez"]);
-      $this->view('juez/gestionar_juez');
-
-
+  $jueces = $EE_modelo->select_all_jueces();
+  $this->view('juez/gestionar_juez', ['jueces'=>$jueces]);
+    //  $this->view('juez/gestionar_juez');
   }
 
   function listar_asignados(){
@@ -241,7 +241,7 @@ class Index extends Controller
     $EE_modelo=$this->model('juezModel');
     $jueces=$EE_modelo->nombre_juez($_POST["idJuez"]);
     $casos=$EE_modelo->asignaciones($_POST["idJuez"]);
-    $this->view('juez/ver_asignados',['jueces'=>$jueces,"casos"=>$casos]);
+    $this->view('juez/ver_asignados',['jueces'=>$jueces,'casos'=>$casos]);
   }
 
   //////////////////////////////////////////////////////////////////////////////////
