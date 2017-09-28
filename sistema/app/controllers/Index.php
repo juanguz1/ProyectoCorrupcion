@@ -23,6 +23,10 @@ class Index extends Controller
 
   }
 
+  function buscar_asignados(){
+    $this->view('juez/buscar_asignados');
+  }
+
   function imputado(){
      $ciudadanos = $this->modelo_ciudadano->consulta_ciudadano();
      $casos=$this->modelo_caso->consulta_casos();
@@ -42,6 +46,8 @@ class Index extends Controller
   function periodico(){
 	  $this->view('periodico/insertar_periodico');
   }
+
+
 
   function partido(){
 	  $this->view('partido/insertar_partido');
@@ -198,6 +204,33 @@ class Index extends Controller
   public function borraJuez($idJuez){
     $resul = $this->modelo_juez->delete_juez($idJuez);
     return $resul;
+  }
+
+  function Asigna_caso(){
+    $EE_modelo = $this->model('JuezModel');
+    $jueces = $EE_modelo->get_jueces();
+    $casos = $this->modelo_caso->select_all_casos();
+    $this->view('juez/caso_juez',['jueces'=>$jueces,"casos"=>$casos]);
+  }
+
+  function Agregar_caso_juez(){
+
+    $postdata=file_get_contents("php://input");
+    $request=json_decode($postdata);
+    $EE_modelo=$this->model('juezModel');
+    $EE_modelo->juez_caso($_POST["idCaso"],$_POST["idJuez"]);
+      $this->view('juez/gestionar_juez');
+
+
+  }
+
+  function listar_asignados(){
+    $postdata=file_get_contents("php://input");
+    $request=json_decode($postdata);
+    $EE_modelo=$this->model('juezModel');
+    $jueces=$EE_modelo->nombre_juez($_POST["idJuez"]);
+    $casos=$EE_modelo->asignaciones($_POST["idJuez"]);
+    $this->view('juez/ver_asignados',['jueces'=>$jueces,"casos"=>$casos]);
   }
 
   //////////////////////////////////////////////////////////////////////////////////

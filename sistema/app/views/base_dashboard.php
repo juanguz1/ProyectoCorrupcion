@@ -105,6 +105,14 @@
                                 <a href="juez">Añadir juez</a>
                             </li>
 
+                            <li>
+                                              <a href="Asigna_caso">Asignar casos</a>
+                                          </li>
+
+                                          <li>
+                                                            <a href="buscar_asignados">Ver Asignaciones</a>
+                                                        </li>
+
 							<li>
                                 <a href="Ver_Jueces">Ver juez</a>
                             </li>
