@@ -85,5 +85,16 @@ class casoModel
       return $implicados ? $implicados:array();
   }
 
+  function delete_ciudadanocaso($idCiudadano,$idCaso){
+    $query = "DELETE FROM casociudadano WHERE idCaso='{$idCaso}' and idCiudadano='{$idCiudadano}'";
+    if($this->connection->query($query) === TRUE){
+      $res="Borrado";
+    }else{
+       $res=$this->connection->error;
+    }
+      echo $res;
+      return $res;
+  }
+
 
 }

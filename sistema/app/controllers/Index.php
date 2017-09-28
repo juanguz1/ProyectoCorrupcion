@@ -114,6 +114,17 @@ class Index extends Controller
     return $resul;
   }
 
+  public function borraCiudadanoCaso(){  
+  $numvarpost = count($_POST);
+  $variables = array_keys($_REQUEST); // obtiene los nombres de las varibles
+  $valores = array_values($_REQUEST); // obtiene los valores de las varibles
+  for($i=0; $i<=$numvarpost; $i++){
+    $$variables[$i]=$valores[$i]; //crea las variables y les asigna el valor
+  }
+    $resul = $this->modelo_caso->delete_ciudadanocaso($idCiudadano, $idCaso);
+    return $resul;
+  }
+
   public function buscar_implicados(){
     $postdata=file_get_contents("php://input");
     $request=json_decode($postdata);
